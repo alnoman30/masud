@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Boldonse&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+
+
+@theme {
+    --color-primary: #F64812;
+    --color-offwhite: #FAFAFA;
+    --color-offwhite2: #CDCDCD;
+    --color-gray: #E3E3E3;
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+}
+
+.blondonse {
+    font-family: "Boldonse", system-ui;
+    font-style: normal;
+}
+.inter {
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+}
+
+body{
+    font-family: "Inter", sans-serif;
+    background-color: var(--color-offwhite);
+}
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1728px;
+    width: 100%;
+    margin: auto;
+}
+
+@media (max-width:640px) {
+    .container {
+        padding-inline: 16px;
+    }
+}
+
+
+
+@layer base {
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.section-padding {
+    padding-block: 136px;
+}
+
+@media (max-width:1024px) {
+    .section-padding {
+        padding-block: 100px;
+    }
+}
+
+@media (max-width:640px) {
+    .section-padding {
+        padding-block: 60px;
+    }
+}
+
+
+
+/* =========================
+   CSS RESET / BASE
+========================= */
+
+/* Box sizing reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin & padding */
+
+/* HTML & body */
+body {
+    height: 100%;
+    font-family: "Inter Tight", sans-serif;
+}
+
+
+
+/* Remove link underline */
+a {
+    text-decoration: none;
+}
+
+/* Images responsive */
+img,
+picture,
+video,
+canvas {
+    max-width: 100%;
+    display: block;
+}
+
+/* Form elements inherit font */
+
+
+/* Button cursor */
+button {
+    cursor: pointer;
+}
+
+/* Table reset */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* main css here */
+/* ====================================== Smooth Scroll ====================================== */
+
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+
+/* =================  Home page header section css =========================*/
+/* Profile image bg eclips */
+.orb-effect {
+    background: radial-gradient(circle at 50% 40%, #7E5EFF 0%, #3818B7 100%);
+    box-shadow: 
+        inset 0 6px 12px rgba(255, 255, 255, 0.25),
+        inset 0 -8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.hero-bg-wrapper {
+    /* Replace with your actual path */
+    background-image: url('../image/hero-bg.svg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #05071a; /* Fallback color */
+}
+
+
+/*  navigation */
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    display: inline-block;
+}
+
+.nav-link {
+    font-family: "Boldonse", system-ui;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--color-offwhite2);
+    text-decoration: none;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+
+    transition: all 0.3s ease;
+
+}
+
+.nav-link:hover {
+    color: #ffffff;
+}
+
+.nav-link.active {
+    background-image: linear-gradient(
+        to right,
+        #F7450D 0%,
+        #3B18B7 51%,
+        #F7450D 100%
+    );
+
+    background-size: 200% auto;
+    color: #ffffff;
+
+    padding: 8px 18px;
+    border-radius: 999px;
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+
+    transition: 0.5s ease;
+}
+
+.nav-link.active:hover {
+    background-position: right center;
+}
+
+.nav-link:focus-visible {
+    outline: 2px solid #F7450D;
+    outline-offset: 4px;
+    border-radius: 6px;
+}
