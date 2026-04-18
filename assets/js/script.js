@@ -1,16 +1,6 @@
 gsap.registerPlugin(ScrollTrigger);
 
 
-  // smooth infinite orbit rotation
-  gsap.to("#orbit", {
-    rotate: 360,
-    duration: 25,
-    repeat: -1,
-    ease: "linear",
-    transformOrigin: "50% 50%"
-  });
-
-
   // lenis smooth scroll // ──================== Smooth Scroll (Lenis) ==================──
     if (typeof Lenis !== "undefined") {
         const lenis = new Lenis({
@@ -82,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// navigation menu toggle
+// navigation 
 
 const menuTl = gsap.timeline({ paused: true, reversed: true });
 
@@ -105,4 +95,65 @@ document.getElementById("menuClose").onclick = () => menuTl.reverse();
 // Close menu if a link is clicked
 document.querySelectorAll(".overlay-list a").forEach(link => {
     link.onclick = () => menuTl.reverse();
+});
+
+
+const pill = document.querySelector(".nav-pill");
+const links = document.querySelectorAll(".nav-list-desktop ul li a");
+
+function movePill(target) {
+  const rect = target.getBoundingClientRect();
+  const parentRect = document
+    .querySelector(".nav-list-desktop")
+    .getBoundingClientRect();
+
+  const x = rect.left - parentRect.left;
+  const w = rect.width;
+  const h = rect.height;
+
+  const tl = gsap.timeline();
+
+  // Step 1: quick move
+  tl.to(pill, {
+    x: x,
+    duration: 0.18,
+    ease: "power2.out"
+  });
+
+  // Step 2: stretch effect (subtle)
+  tl.to(pill, {
+    width: w + 10,          // slight overshoot
+    height: h + 4,
+    duration: 0.12,
+    ease: "power1.out"
+  }, "<");
+
+  // Step 3: settle back
+  tl.to(pill, {
+    width: w,
+    height: h,
+    duration: 0.18,
+    ease: "power3.out"
+  });
+}
+
+// initial
+window.addEventListener("load", () => {
+  const active = document.querySelector(".nav-list-desktop a.active");
+  if (active) movePill(active);
+});
+
+// click
+links.forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    document
+      .querySelector(".nav-list-desktop a.active")
+      ?.classList.remove("active");
+
+    link.classList.add("active");
+
+    movePill(link);
+  });
 });

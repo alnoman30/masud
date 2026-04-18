@@ -34,6 +34,7 @@ html {
 .container {
     max-width: 1728px;
     width: 100%;
+    padding-inline: 20px;
     margin: auto;
 }
 
@@ -164,31 +165,78 @@ html.lenis body {
 }
 
 /* Desktop specific styles */
+
+.nav-list-desktop {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Pill (animated background) */
+.nav-pill {
+    position: absolute;
+    will-change: transform, width, height;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    
+    height: 40px;
+    border-radius: 9999px;
+    z-index: -1;
+
+      background-image: linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%);
+
+    
+    transition: all 0.3s ease; /* fallback if GSAP not loaded */
+}
+
+/* Nav list */
 .nav-list-desktop ul {
     display: flex;
+    align-items: center;
     gap: 2rem;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
-.nav-list-desktop ul li a{
+
+/* Links */
+.nav-list-desktop ul li a {
+    display: inline-flex;              /* 🔥 better vertical alignment */
+    align-items: center;               /* 🔥 center text */
+    justify-content: center;
+
     color: var(--color-offwhite);
     text-decoration: none;
     font-family: "Boldonse", system-ui;
-    font-style: normal;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
     letter-spacing: -0.16px;
+
+    padding: 8px 16px;
     border-radius: 9999px;
-    transition: 0.3s;
-    padding:8px 16px;
+
+    position: relative;
+    z-index: 1; /* 🔥 keep text above pill */
+
+    transition: color 0.3s ease, transform 0.3s ease;
 }
+
+/* Hover effect */
 .nav-list-desktop ul li a:hover {
-    color: var(--color-primary);
+  
+    transform: scale(1.05);
 }
-.nav-list-desktop ul li a.active{
+
+/* Active link text */
+.nav-list-desktop ul li a.active {
+    color: #fff;
+}
+/* .nav-list-desktop ul li a.active{
     background: radial-gradient(599.97% 102.2% at 50% 50%, #3B18B7 0%, #F7450D 100%);
     color: white;
-}
+} */
 .desktop-cv-btn {
     background: white;
     font-family: "Boldonse", system-ui;
@@ -250,7 +298,7 @@ html.lenis body {
     transform: translateY(-100%);
 }
 .close-menu { position: absolute; top: 30px; right: 30px; color: white; background: none; border: none; cursor: pointer; }
-.overlay-list { list-style: none; text-align: center; }
-.overlay-list li { margin: 20px 0; opacity: 0; transform: translateY(20px); }
-.overlay-list li a { color: white; font-size: 2.5rem; font-weight: 800; text-decoration: none; }
+.mobile-menu-wrap ul { list-style: none; text-align: center; }
+.mobile-menu-wrap ul li { margin: 20px 0; opacity: 0; transform: translateY(20px); }
+.mobile-menu-wrap ul li a { color: white; font-size: 2.5rem; font-weight: 800; text-decoration: none; }
 .overlay-cta { display: inline-block; background: #EE3900; padding: 12px 35px; border-radius: 50px; font-size: 1.2rem !important; }
