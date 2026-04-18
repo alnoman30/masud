@@ -163,71 +163,94 @@ html.lenis body {
     background-color: #05071a; /* Fallback color */
 }
 
-
-/*  navigation */
-.main-nav {
+/* Desktop specific styles */
+.nav-list-desktop ul {
     display: flex;
-    align-items: center;
-}
-
-.nav-list {
-    display: flex;
-    align-items: center;
-    gap: 48px;
-
+    gap: 2rem;
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
-
-.nav-item {
-    display: inline-block;
-}
-
-.nav-link {
-    font-family: "Boldonse", system-ui;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: var(--color-offwhite2);
+.nav-list-desktop ul li a{
+    color: var(--color-offwhite);
     text-decoration: none;
-    position: relative;
-    display: inline-flex;
+    font-family: "Boldonse", system-ui;
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.16px;
+    border-radius: 9999px;
+    transition: 0.3s;
+    padding:8px 16px;
+}
+.nav-list-desktop ul li a:hover {
+    color: var(--color-primary);
+}
+.nav-list-desktop ul li a.active{
+    background: radial-gradient(599.97% 102.2% at 50% 50%, #3B18B7 0%, #F7450D 100%);
+    color: white;
+}
+.desktop-cv-btn {
+    background: white;
+    font-family: "Boldonse", system-ui;
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-primary);
+    padding: 12px 24px;
+    border-radius: 50px;
+    display: flex;
     align-items: center;
-
-    transition: all 0.3s ease;
-
+    gap: 8px;
+    text-decoration: none;
 }
 
-.nav-link:hover {
-    color: #ffffff;
+/* --- Mobile Pill (Visible only on Mobile via HTML class) --- */
+.nav-profile-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2px 6px 2px 2px;
+    border-radius: 100px;
+    text-decoration: none;
+}
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #5D5FEF; /* Purple background from your image */
+}
+.profile-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.profile-name { color: white; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
+
+/* Mobile Menu Button */
+.mobile-toggle {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
 }
 
-.nav-link.active {
-    background-image: linear-gradient(
-        to right,
-        #F7450D 0%,
-        #3B18B7 51%,
-        #F7450D 100%
-    );
-
-    background-size: 200% auto;
-    color: #ffffff;
-
-    padding: 8px 18px;
-    border-radius: 999px;
-
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
-
-    transition: 0.5s ease;
+/* --- Full Screen Overlay --- */
+.full-menu-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    background: #1C1C4D ; /* Dark theme */
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-100%);
 }
-
-.nav-link.active:hover {
-    background-position: right center;
-}
-
-.nav-link:focus-visible {
-    outline: 2px solid #F7450D;
-    outline-offset: 4px;
-    border-radius: 6px;
-}
+.close-menu { position: absolute; top: 30px; right: 30px; color: white; background: none; border: none; cursor: pointer; }
+.overlay-list { list-style: none; text-align: center; }
+.overlay-list li { margin: 20px 0; opacity: 0; transform: translateY(20px); }
+.overlay-list li a { color: white; font-size: 2.5rem; font-weight: 800; text-decoration: none; }
+.overlay-cta { display: inline-block; background: #EE3900; padding: 12px 35px; border-radius: 50px; font-size: 1.2rem !important; }

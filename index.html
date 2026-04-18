@@ -18,52 +18,102 @@
         <div class="hero-bg-wrapper relative h-auto overflow-hidden flex flex-col  rounded-3xl ">
 
             <!-- ================= NAVBAR ================= -->
-            <nav class="container mx-auto flex items-center justify-between relative z-50 py-4">
+            <!-- Main Navbar Container -->
+            <nav class="container mx-auto flex items-center justify-between relative z-[100] py-4 px-4">
 
-                <!-- Profile + Name -->
-                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition">
+                <!-- ================= DESKTOP NAVBAR ================= -->
+                <div class="hidden lg:flex items-center justify-between w-full">
 
-                    <div class="relative w-[60px] h-[60px] flex items-center justify-center">
-                        <div class="absolute inset-0 rounded-full orb-effect"></div>
+                    <!-- Logo + Profile Section -->
+                    <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition">
 
-                        <div class="relative w-full h-full rounded-full overflow-hidden">
-                            <img src="assets/image/profile.png" alt="Profile" class="w-full h-full object-cover">
+                        <!-- Profile Image Wrapper -->
+                        <div class="relative w-[60px] h-[60px] flex items-center justify-center">
+
+                            <!-- Background Orb Effect -->
+                            <div class="absolute inset-0 rounded-full orb-effect"></div>
+
+                            <!-- Actual Profile Image -->
+                            <div class="relative w-full h-full rounded-full overflow-hidden">
+                                <img src="assets/image/profile.png" alt="Profile" class="w-full h-full object-cover">
+                            </div>
                         </div>
+
+                        <!-- Name Text -->
+                        <div class="text-2xl font-bold text-white tracking-tight">
+                            Abdullah Al Masud
+                        </div>
+                    </a>
+
+                    <!-- Navigation Links -->
+                    <div class="nav-list-desktop">
+                        <ul>
+                            <li><a href="#" class="active">Home</a></li>
+                            <li><a href="#" class="">Portfolio</a></li>
+                            <li><a href="#" class="">About Us</a></li>
+                        </ul>
                     </div>
 
-                    <div class="text-2xl font-bold text-white tracking-tight">
-                        Abdullah Al Masud
-                    </div>
+                    <!-- Download CV Button -->
+                    <a href="#" class="desktop-cv-btn">
+                        Download CV
 
-                </a>
+                        <!-- Arrow Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="18" viewBox="0 0 26 18" fill="none">
+                            <path d="M22.5588 9L3.44116 9" stroke="#F64812" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M16.8235 15.75C16.8235 15.75 23.7059 10.7787 23.7059 9C23.7059 7.22115 16.8235 2.25 16.8235 2.25"
+                                stroke="#F64812" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
 
-                <!-- Navigation  -->
-                <nav class="main-nav" aria-label="Primary navigation">
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">About Us</a>
-                        </li>
-                    </ul>
-                </nav>
+                <!-- ================= MOBILE NAVBAR ================= -->
+                <div class="flex lg:hidden items-center justify-between w-full">
 
-                <!-- CTA Button -->
-                <a href="#"
-                    class="bg-white text-primary blondonse text-[16px] font-normal leading-6  px-6 py-4 rounded-full  flex items-center gap-2 transition">
-                    Download CV
-                    <!-- Arrow Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                </a>
+                    <!-- Mobile Profile Pill (Logo + Name) -->
+                    <a href="index.html" class="nav-profile-pill">
+
+                        <!-- Avatar Image -->
+                        <div class="profile-avatar">
+                            <img src="assets/image/profile.png" alt="Profile">
+                        </div>
+
+                        <!-- Name -->
+                        <span class="profile-name">Abdullah Al Masud</span>
+                    </a>
+
+                    <!-- Mobile Menu Button (Hamburger Icon) -->
+                    <button id="menuOpen" class="mobile-toggle flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                            <path d="M2.54842 5.94632H17.839" stroke="white" stroke-width="1.52905"
+                                stroke-linecap="round" />
+                            <path d="M2.54842 10.1937H17.839" stroke="white" stroke-width="1.52905"
+                                stroke-linecap="round" />
+                            <path d="M2.54842 14.4411H17.839" stroke="white" stroke-width="1.52905"
+                                stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+
             </nav>
+
+            <div id="menuOverlay" class="full-menu-overlay">
+                <button id="menuClose" class="close-menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <ul class="overlay-list">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#" class="overlay-cta">Download CV</a></li>
+                </ul>
+            </div>
 
             <!-- ================= HERO CONTENT ================= -->
             <div class="container mx-auto grow flex flex-col md:flex-row items-center relative z-10">
@@ -72,7 +122,8 @@
                 <div
                     class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left z-20">
 
-                    <h1 class=" hero-title blondonse text-white text-[72px] font-normal leading-tight uppercase opacity-0">
+                    <h1
+                        class=" hero-title blondonse text-white text-[72px] font-normal leading-tight uppercase opacity-0">
                         Ad Creatives & Social Media <span class="text-offwhite2">Design That Convert</span>
                     </h1>
 
@@ -218,7 +269,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js">
-    </script>
+        </script>
     <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>

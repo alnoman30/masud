@@ -80,3 +80,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+// navigation menu toggle
+
+const menuTl = gsap.timeline({ paused: true, reversed: true });
+
+menuTl.to("#menuOverlay", {
+    duration: 0.6,
+    y: "0%",
+    ease: "power4.inOut"
+})
+.to(".overlay-list li", {
+    duration: 0.4,
+    opacity: 1,
+    y: 0,
+    stagger: 0.1,
+    ease: "back.out(1.7)"
+}, "-=0.2");
+
+document.getElementById("menuOpen").onclick = () => menuTl.play();
+document.getElementById("menuClose").onclick = () => menuTl.reverse();
+
+// Close menu if a link is clicked
+document.querySelectorAll(".overlay-list a").forEach(link => {
+    link.onclick = () => menuTl.reverse();
+});
