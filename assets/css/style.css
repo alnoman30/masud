@@ -567,6 +567,9 @@
   .text-\[18px\] {
     font-size: 18px;
   }
+  .text-\[28px\] {
+    font-size: 28px;
+  }
   .text-\[32px\] {
     font-size: 32px;
   }
@@ -683,6 +686,11 @@
       @media (hover: hover) {
         opacity: 80%;
       }
+    }
+  }
+  .sm\:text-\[32px\] {
+    @media (width >= 40rem) {
+      font-size: 32px;
     }
   }
   .md\:top-6 {
