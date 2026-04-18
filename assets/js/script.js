@@ -157,3 +157,134 @@ links.forEach(link => {
     movePill(link);
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const items = document.querySelectorAll(".spec-item");
+  const mainImg = document.getElementById("mainSpecImage");
+
+  items.forEach(item => {
+
+    const content = item.querySelector(".spec-content");
+    const title = item.querySelector(".spec-title");
+    const index = item.querySelector(".spec-index");
+
+    // INITIAL STATE
+    content.style.height = "0px";
+    content.style.opacity = "0";
+
+    // ---------------- CLICK ----------------
+    item.addEventListener("click", () => {
+
+      const isActive = item.classList.contains("active");
+
+      // CLOSE ALL
+      items.forEach(i => {
+        i.classList.remove("active");
+
+        const c = i.querySelector(".spec-content");
+
+        gsap.killTweensOf(c);
+
+        gsap.to(c, {
+          height: 0,
+          opacity: 0,
+          duration: 0.4,
+          ease: "power2.inOut"
+        });
+
+        // RESET GRADIENT
+        const t = i.querySelector(".spec-title");
+        const ind = i.querySelector(".spec-index");
+
+        gsap.to([t, ind], {
+          backgroundPosition: "100% 0%",
+          duration: 0.3
+        });
+      });
+
+      if (isActive) return;
+
+      // OPEN CURRENT
+      item.classList.add("active");
+
+      content.style.height = "auto";
+      const fullHeight = content.scrollHeight;
+      content.style.height = "0px";
+
+      gsap.killTweensOf(content);
+
+      gsap.to(content, {
+        height: fullHeight,
+        opacity: 1,
+        duration: 0.6,
+        ease: "power3.out",
+        onComplete: () => {
+          content.style.height = "auto";
+        }
+      });
+
+      // SET ACTIVE GRADIENT
+      gsap.to([title, index], {
+        backgroundPosition: "0% 0%",
+        duration: 0.4
+      });
+
+      // IMAGE SWITCH
+      const img = item.getAttribute("data-image");
+
+      if (img && mainImg) {
+        gsap.to(mainImg, {
+          opacity: 0,
+          scale: 0.95,
+          duration: 0.2,
+          onComplete: () => {
+            mainImg.src = img;
+
+            gsap.to(mainImg, {
+              opacity: 1,
+              scale: 1,
+              duration: 0.4,
+              ease: "power2.out"
+            });
+          }
+        });
+      }
+    });
+
+    // ---------------- HOVER (PREMIUM EFFECT) ----------------
+    item.addEventListener("mouseenter", () => {
+
+      if (item.classList.contains("active")) return;
+
+      // index first
+      gsap.to(index, {
+        backgroundPosition: "0% 0%",
+        duration: 0.35,
+        ease: "power2.out"
+      });
+
+      // then title
+      gsap.to(title, {
+        backgroundPosition: "0% 0%",
+        duration: 0.45,
+        delay: 0.08,
+        ease: "power2.out"
+      });
+    });
+
+    item.addEventListener("mouseleave", () => {
+
+      if (item.classList.contains("active")) return;
+
+      gsap.to([title, index], {
+        backgroundPosition: "100% 0%",
+        duration: 0.4,
+        ease: "power2.out"
+      });
+    });
+
+  });
+
+});

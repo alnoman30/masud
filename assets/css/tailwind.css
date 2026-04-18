@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Boldonse&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import "tailwindcss";
 
 
@@ -17,6 +18,10 @@
 }
 .inter {
     font-family: "Inter", sans-serif;
+    font-style: normal;
+}
+.anton{
+    font-family: "Anton", sans-serif;
     font-style: normal;
 }
 
@@ -302,3 +307,53 @@ html.lenis body {
 .mobile-menu-wrap ul li { margin: 20px 0; opacity: 0; transform: translateY(20px); }
 .mobile-menu-wrap ul li a { color: white; font-size: 2.5rem; font-weight: 800; text-decoration: none; }
 .overlay-cta { display: inline-block; background: #EE3900; padding: 12px 35px; border-radius: 50px; font-size: 1.2rem !important; }
+
+
+/* Tabs section css */
+
+/* ACCORDION CONTENT */
+.spec-content {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+/* ARROW */
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.spec-item.active .arrow {
+  transform: rotate(180deg);
+  color: var(--color-primary);
+}
+
+/* GRADIENT TEXT BASE */
+.spec-title,
+.spec-index {
+  position: relative;
+  display: inline-block;
+
+  background-image: linear-gradient(to right, #F64812 50%, #000 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* INDEX DEFAULT COLOR FIX */
+.spec-index {
+  background-image: linear-gradient(to right, #F64812 50%, #9ca3af 50%);
+}
+
+/* ACTIVE STATE (FULL COLOR) */
+.spec-item.active .spec-title,
+.spec-item.active .spec-index {
+  background-position: 0% 0;
+}
+
+/* ACTIVE ARROW COLOR */
+.spec-item.active .arrow svg {
+  stroke: #EE3900;
+}
