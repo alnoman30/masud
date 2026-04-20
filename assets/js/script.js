@@ -158,7 +158,7 @@ links.forEach(link => {
   });
 });
 
-
+// Accordion service section
 document.addEventListener("DOMContentLoaded", () => {
 
   const items = document.querySelectorAll(".spec-item");
@@ -287,4 +287,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
+});
+
+
+// Creative strategy service section
+document.addEventListener('DOMContentLoaded', function () {
+  new Splide('#card-slider', {
+    type: 'loop',
+    perPage: 1.5,
+    gap:"30px",
+    padding:30,
+    arrows: false,
+    pagination: false,
+
+    // IMPORTANT FIX:
+    focus: 0,
+    drag: 'free', // optional smooth feel
+
+    breakpoints: {
+      1024: {
+        perPage: 1.2,
+      },
+      640: {
+        perPage: 1,
+      },
+    },
+
+    autoScroll: {
+      speed: 1,
+      pauseOnHover: true,
+      pauseOnFocus: false,
+    },
+  }).mount(window.splide.Extensions);
 });
