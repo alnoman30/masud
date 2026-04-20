@@ -4,7 +4,8 @@
 
 
 @theme {
-    --color-primary: #F64812;
+    --color-primary: #c;
+    --color-secondary: #030F32;
     --color-offwhite: #FAFAFA;
     --color-offwhite2: #CDCDCD;
     --color-gray: #E3E3E3;
@@ -12,7 +13,7 @@
     --color-black: #000000;
 }
 
-.blondonse {
+.boldonse {
     font-family: "Boldonse", system-ui;
     font-style: normal;
 }
@@ -248,7 +249,7 @@ html.lenis body {
     font-style: normal;
     font-size: 16px;
     font-weight: 400;
-    color: var(--color-primary);
+    color: #FF512F;
     padding: 12px 24px;
     border-radius: 50px;
     display: flex;
@@ -356,4 +357,18 @@ html.lenis body {
 /* ACTIVE ARROW COLOR */
 .spec-item.active .arrow svg {
   stroke: #EE3900;
+}
+
+/* Portfolio section */
+.animated-text {
+    background: linear-gradient(to right, #F64812 50%, #000d26 50%);
+    background-size: 200% 100%;
+    background-position: right; /* start hidden on left */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 0.8s ease; /* slower */
+}
+
+.group:hover .animated-text {
+    background-position: left; /* moves left → right visually */
 }
