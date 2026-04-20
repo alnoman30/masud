@@ -1,4 +1,6 @@
 gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(SplitText);
+
 
 
   // lenis smooth scroll // ──================== Smooth Scroll (Lenis) ==================──
@@ -69,6 +71,31 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+});
+
+
+
+// animated text fade to place
+const split = SplitText.create(".split-target", {
+  type: "chars",
+  absolute: true
+});
+
+gsap.from(split.chars, {
+  x: () => gsap.utils.random(-200, 200),
+  y: () => gsap.utils.random(-200, 200),
+  opacity: 0,
+  rotation: () => gsap.utils.random(-90, 90),
+
+  stagger: 0.05,
+  duration: 2.2,
+  ease: "power2.out",
+
+  scrollTrigger: {
+    trigger: ".split-target",
+    start: "top 80%",   // when section hits 80% of viewport
+    toggleActions: "play none none none"
+  }
 });
 
 
@@ -320,3 +347,4 @@ document.addEventListener('DOMContentLoaded', function () {
     },
   }).mount(window.splide.Extensions);
 });
+

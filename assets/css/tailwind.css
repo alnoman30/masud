@@ -375,3 +375,9 @@ html.lenis body {
 .group:hover .animated-text {
     background-position: left; /* moves left → right visually */
 }
+
+/* text animation  */
+.split-target {
+  display: inline-block;
+  position: relative;
+}
