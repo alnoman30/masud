@@ -1,5 +1,4 @@
-gsap.registerPlugin(ScrollTrigger);
-  gsap.registerPlugin(SplitText);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 
 
