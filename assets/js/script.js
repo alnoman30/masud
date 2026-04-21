@@ -419,6 +419,16 @@ const items = document.querySelectorAll(".faq-item");
     pauseOnHover: true,
     arrows: false,
     pagination: false,
+        breakpoints: {
+      
+      1024: {
+        perPage: 2, 
+      },
+      // Tablet (1024px to 768px)
+      768: {
+        perPage: 1,  
+      },
+    },
     gap: '1rem',
   };
 
@@ -440,3 +450,19 @@ const items = document.querySelectorAll(".faq-item");
     },
   }).mount(window.splide.Extensions);
 });
+
+
+// Progress bar
+gsap.to(".progress", {
+      scrollTrigger: {
+        trigger: "body",  // Use 'body' or the top-level container that holds all sections
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true, // Smoothly scrubs the animation based on scroll
+        markers: false, // Hide markers
+        onEnter: () => gsap.to(".progress-bar", { opacity: 1, duration: 0.3 }), // Fade in when scroll starts
+        onLeaveBack: () => gsap.to(".progress-bar", { opacity: 0, duration: 0.3 }), // Fade out when scroll goes back to the top
+      },
+      width: "100%", // Full width at the bottom of the page
+      ease: "none"
+    });
