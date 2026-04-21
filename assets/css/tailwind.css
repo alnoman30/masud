@@ -205,22 +205,6 @@ html.lenis body {
     align-items: center;
 }
 
-/* Pill (animated background) */
-.nav-pill {
-    position: absolute;
-    will-change: transform, width, height;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    height: 40px;
-    border-radius: 9999px;
-    z-index: -1;
-    background-image: linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%);
-    transition: all 0.3s ease;
-  
-}
-
-/* Nav list */
 .nav-list-desktop ul {
     display: flex;
     align-items: center;
@@ -248,22 +232,29 @@ html.lenis body {
     border-radius: 9999px;
 
     position: relative;
-    z-index: 1;
+    z-index: 1; 
 
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s ease, background 0.3s ease;
 }
 
-
-
-/* Active link text */
 .nav-list-desktop ul li a.active {
     color: #fff;
+    background: linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%);
 }
 
-/* .nav-list-desktop ul li a.active{
-    background: radial-gradient(599.97% 102.2% at 50% 50%, #3B18B7 0%, #F7450D 100%);
-    color: white;
-} */
+.nav-list-desktop ul li a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%);
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+    z-index: -1; 
+}
+
+
 .desktop-cv-btn {
     background: white;
     font-family: "Boldonse", system-ui;

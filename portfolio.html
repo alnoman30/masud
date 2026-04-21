@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdullah Al Masud</title>
+    <link rel="stylesheet" href="assets/css/splide.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress"></div>
+    </div>
+
+    <!-- Full screen hero section -->
+    <section class=" p-4 bg-white overflow-hidden">
+
+        <!-- Wrapper with background styling and rounded layout -->
+        <div class="hero-bg-wrapper relative h-auto overflow-hidden flex flex-col  rounded-3xl ">
+
+            <!-- ================= NAVBAR ================= -->
+            <!-- Main Navbar Container -->
+            <nav class="container mx-auto flex items-center justify-between relative z-100 py-4 px-4">
+
+                <!-- ================= DESKTOP NAVBAR ================= -->
+                <div class="hidden lg:flex items-center justify-between w-full">
+
+                    <!-- Logo + Profile Section -->
+                    <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition">
+
+                        <!-- Profile Image Wrapper -->
+                        <div class="relative w-15 h-15 flex items-center justify-center">
+
+                            <!-- Background Orb Effect -->
+                            <div class="absolute inset-0 rounded-full orb-effect"></div>
+
+                            <!-- Actual Profile Image -->
+                            <div class="relative w-full h-full rounded-full overflow-hidden">
+                                <img src="assets/image/profile.png" alt="Profile" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+
+                        <!-- Name Text -->
+                        <div class="text-2xl font-bold text-white tracking-tight">
+                            Abdullah Al Masud
+                        </div>
+                    </a>
+
+                    <!-- Navigation Links -->
+                    <div class="nav-list-desktop">
+                        <div class="nav-pill"></div>
+                        <ul>
+                            <li><a href="index.html" >Home</a></li>
+                            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                            <li><a href="#">About Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Download CV Button -->
+                    <a href="#" class="desktop-cv-btn  transition-all hover:scale-105 ">
+                        Download CV
+
+                        <!-- Arrow Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="18" viewBox="0 0 26 18" fill="none">
+                            <path d="M22.5588 9L3.44116 9" stroke="#F64812" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M16.8235 15.75C16.8235 15.75 23.7059 10.7787 23.7059 9C23.7059 7.22115 16.8235 2.25 16.8235 2.25"
+                                stroke="#F64812" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- ================= MOBILE NAVBAR ================= -->
+                <div class="flex lg:hidden items-center justify-between w-full">
+
+                    <!-- Mobile Profile Pill (Logo + Name) -->
+                    <a href="index.html" class="nav-profile-pill">
+
+                        <!-- Avatar Image -->
+                        <div class="profile-avatar">
+                            <img src="assets/image/profile.png" alt="Profile">
+                        </div>
+
+                        <!-- Name -->
+                        <span class="profile-name">Abdullah Al Masud</span>
+                    </a>
+
+                    <!-- Mobile Menu Button (Hamburger Icon) -->
+                    <button id="menuOpen" class="mobile-toggle flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                            <path d="M2.54842 5.94632H17.839" stroke="white" stroke-width="1.52905"
+                                stroke-linecap="round" />
+                            <path d="M2.54842 10.1937H17.839" stroke="white" stroke-width="1.52905"
+                                stroke-linecap="round" />
+                            <path d="M2.54842 14.4411H17.839" stroke="white" stroke-width="1.52905"
+                                stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+
+            </nav>
+
+            <div id="menuOverlay" class="full-menu-overlay">
+                <button id="menuClose" class="close-menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="mobile-menu-wrap">
+                    <ul class="overlay-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#" class="overlay-cta">Download
+                                CV</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- ================= HERO CONTENT ================= -->
+            <div class="container mx-auto grow flex flex-col lg:flex-row items-center relative z-10">
+
+                <!-- ===== LEFT CONTENT (TEXT) ===== -->
+                <div
+                    class="w-full lg:w-1/2 flex flex-col justify-center items-start text-left lg:items-start lg:text-left z-20">
+
+                    <h1
+                        class="hero-title boldonse text-white text-[42px] md:text-[72px] font-normal leading-[150%] uppercase opacity-0">
+                        Ad Creatives & Social Media <span class="text-offwhite2">Design That
+                            Convert</span>
+                    </h1>
+
+                    <p class="hero-p text-gray text-lg font-normal leading-7 max-w-xl mt-7.5 mb-10 opacity-0">
+                        Performance-driven design specialist crafting
+                        high-impact ad creatives that drive engagement,
+                        clicks, and conversions across all major platforms.
+                    </p>
+
+                    <div class="hero-btn-wrap opacity-0 w-full lg:w-auto flex justify-center lg:justify-start">
+                        <a href="#"
+                            class="w-full lg:w-auto flex items-center justify-center lg:justify-start gap-4 text-[14px] md:text-lg text-white font-normal leading-6 px-8 py-6 boldonse bg-[radial-gradient(50%_50%_at_50%_50%,#EE3900_0%,#F7450D_100%)] shadow-[inset_0_0_10px_rgba(255,255,255,0.25),inset_0_0_20px_rgba(255,255,255,0.50)] rounded-full  transition-all hover:scale-105 ">
+
+                            <span>See My Work</span>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 34 24"
+                                fill="none">
+                                <path d="M29.5 12L4.5 12" stroke="white" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M22 21C22 21 31 14.3716 31 12C31 9.6282 22 3 22 3" stroke="white"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- ===== RIGHT CONTENT (IMAGE + FLOATING CARDS) ===== -->
+                <div class="w-full lg:w-1/2 relative flex justify-center items-end h-full">
+
+                    <!-- ================= BACKGROUND CIRCLE ================= -->
+                    <div
+                        class="absolute inset-0 flex items-center justify-center z-0 translate-y-15 pointer-events-none">
+
+                        <svg viewBox="0 0 800 800" class="w-200 h-200">
+                            <circle cx="400" cy="400" r="360" stroke="#F7450D" stroke-width="2" fill="none" />
+                        </svg>
+
+                    </div>
+
+                    <!-- ================= PERSON IMAGE ================= -->
+                    <img src="assets/image/banner-person.png" alt="Person"
+                        class="relative z-10 h-full max-h-[85dvh] w-auto object-contain block">
+
+                    <!-- ================= FLOATING CARDS ================= -->
+                    <div class="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+
+                        <div class="relative w-130 h-130">
+
+                            <!-- CARD 1 -->
+                            <div
+                                class="absolute floating-card left-0 top-32 md:top-6 md:-left-20 z-30 bg-white/5 backdrop-blur-xl p-2 md:p-4 rounded-2xl border border-white/10 w-20 md:w-32 shadow-2xl">
+                                <div class="flex flex-col items-center text-center">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44"
+                                        fill="none">
+                                        <path
+                                            d="M43.5938 21.7969C43.5938 9.75586 33.8379 0 21.7969 0C9.75586 0 0 9.75586 0 21.7969C0 32.676 7.9708 41.6936 18.3911 43.3301V28.0978H12.854V21.7969H18.3911V16.9945C18.3911 11.5321 21.6431 8.51484 26.6238 8.51484C29.0092 8.51484 31.5035 8.94023 31.5035 8.94023V14.3016H28.7543C26.0473 14.3016 25.2026 15.982 25.2026 17.7056V21.7969H31.2478L30.281 28.0978H25.2026V43.3301C35.6229 41.6936 43.5938 32.676 43.5938 21.7969Z"
+                                            fill="#FF835C" />
+                                    </svg>
+
+                                    <span class="text-[10px] font-medium leading-3 text-white mt-2">
+                                        Facebook Ad Creative
+                                    </span>
+
+                                </div>
+                            </div>
+
+                            <!-- CARD 2 -->
+                            <div
+                                class="absolute floating-card top-36 right-0 md:top-20 md:-right-14 z-30 bg-white/5 backdrop-blur-xl p-2 md:p-4 rounded-2xl border border-white/10 w-20 md:w-32 shadow-2xl">
+                                <div class="flex flex-col items-center text-center">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="46" height="45" viewBox="0 0 46 45"
+                                        fill="none">
+                                        <path
+                                            d="M22.5176 10.8749C16.1292 10.8749 10.9763 15.9848 10.9763 22.32C10.9763 28.6551 16.1292 33.7651 22.5176 33.7651C28.906 33.7651 34.0589 28.6551 34.0589 22.32C34.0589 15.9848 28.906 10.8749 22.5176 10.8749ZM22.5176 29.7608C18.3892 29.7608 15.0142 26.4239 15.0142 22.32C15.0142 18.2161 18.3792 14.8791 22.5176 14.8791C26.656 14.8791 30.0209 18.2161 30.0209 22.32C30.0209 26.4239 26.6459 29.7608 22.5176 29.7608ZM37.2229 10.4067C37.2229 11.8909 36.0176 13.0762 34.531 13.0762C33.0343 13.0762 31.839 11.8809 31.839 10.4067C31.839 8.93247 33.0444 7.73716 34.531 7.73716C36.0176 7.73716 37.2229 8.93247 37.2229 10.4067ZM44.8669 13.1161C44.6962 9.54009 43.8725 6.37251 41.2308 3.76274C38.5991 1.15298 35.4049 0.336182 31.7988 0.156885C28.0823 -0.0522949 16.9428 -0.0522949 13.2263 0.156885C9.6303 0.326221 6.43611 1.14302 3.79436 3.75278C1.15262 6.36255 0.339007 9.53013 0.158203 13.1061C-0.0527344 16.7916 -0.0527344 27.8383 0.158203 31.5239C0.328962 35.0998 1.15262 38.2674 3.79436 40.8772C6.43611 43.487 9.62026 44.3038 13.2263 44.4831C16.9428 44.6922 28.0823 44.6922 31.7988 44.4831C35.4049 44.3137 38.5991 43.4969 41.2308 40.8772C43.8624 38.2674 44.6861 35.0998 44.8669 31.5239C45.0779 27.8383 45.0779 16.8016 44.8669 13.1161ZM40.0656 35.4784C39.2821 37.4307 37.7654 38.9348 35.7866 39.7217C32.8234 40.8872 25.7921 40.6182 22.5176 40.6182C19.243 40.6182 12.2017 40.8772 9.2486 39.7217C7.27985 38.9448 5.76311 37.4407 4.96959 35.4784C3.79436 32.5399 4.06557 25.5672 4.06557 22.32C4.06557 19.0727 3.80441 12.0901 4.96959 9.16157C5.75307 7.20923 7.26981 5.70513 9.2486 4.91821C12.2118 3.75278 19.243 4.02173 22.5176 4.02173C25.7921 4.02173 32.8334 3.76274 35.7866 4.91821C37.7553 5.69517 39.272 7.19927 40.0656 9.16157C41.2408 12.1 40.9696 19.0727 40.9696 22.32C40.9696 25.5672 41.2408 32.5499 40.0656 35.4784Z"
+                                            fill="#FF835C" />
+                                    </svg>
+
+                                    <span class="text-[10px] font-medium leading-3 text-white mt-2">
+                                        Instagram Carousel
+                                    </span>
+
+                                </div>
+                            </div>
+
+                            <!-- CARD 3 -->
+                            <div
+                                class="absolute floating-card bottom-12 left-0 md:bottom-10 md:-left-20 z-30 bg-white/5 backdrop-blur-xl p-2 md:p-4 rounded-2xl border border-white/10 w-20 md:w-32 shadow-2xl">
+                                <div class="flex flex-col items-center text-center">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="47" viewBox="0 0 45 47"
+                                        fill="none">
+                                        <path
+                                            d="M45 24.0325C45 37.0217 36.0646 46.2657 22.8689 46.2657C10.2172 46.2657 0 36.0946 0 23.5001C0 10.9055 10.2172 0.734436 22.8689 0.734436C29.0287 0.734436 34.2111 2.98346 38.2039 6.69205L31.9795 12.6497C23.8371 4.82858 8.6957 10.7036 8.6957 23.5001C8.6957 31.4405 15.0676 37.8755 22.8689 37.8755C31.9242 37.8755 35.3176 31.413 35.8525 28.0624H22.8689V20.2321H44.6404C44.8525 21.3979 45 22.5178 45 24.0325Z"
+                                            fill="#FF835C" />
+                                    </svg>
+
+                                    <span class="text-[10px] font-medium leading-3 text-white mt-2">
+                                        Google Display Banner
+                                    </span>
+
+                                </div>
+                            </div>
+
+                            <!-- CARD 4 -->
+                            <div
+                                class="absolute floating-card bottom-20 right-0 md:-bottom-20 md:-right-20 z-30 bg-white/5 backdrop-blur-xl p-2 md:p-4 rounded-2xl border border-white/10 w-20 md:w-32 shadow-2xl">
+                                <div class="flex flex-col items-center text-center">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="48" viewBox="0 0 36 48"
+                                        fill="none">
+                                        <path
+                                            d="M6.84375 3.65622C5.45625 2.8031 3.7125 2.77497 2.29688 3.57185C0.88125 4.36872 0 5.86872 0 7.49997V40.5C0 42.1312 0.88125 43.6312 2.29688 44.4281C3.7125 45.225 5.45625 45.1875 6.84375 44.3437L33.8438 27.8437C35.1844 27.0281 36 25.575 36 24C36 22.425 35.1844 20.9812 33.8438 20.1562L6.84375 3.65622Z"
+                                            fill="#FF835C" />
+                                    </svg>
+
+                                    <span class="text-[10px] font-medium leading-3 text-white mt-2">
+                                        Video Ad Creative
+                                    </span>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+ 
+
+
+
+
+
+    <!--===================== Testimonial section ==================-->
+    <section class="bg-tertiary p-4 overflow-hidden">
+
+        <div class="bg-secondary rounded-3xl py-20 md:py-35">
+            <div class="container px-4  ">
+                <div class="text-center">
+                    <h2
+                    class="boldonse text-white text-[32px] sm:text-5xl md:text-[56px] font-normal leading-[140%] uppercase mb-7.5">
+                    Client Testimonials</h2>
+                <p class="text-white text-lg sm:text-xl font-normal leading-[150%] mb-10 sm:mb-20">What clients say about working
+                    with me and the results achieved
+                    through strategic creative solutions.</p>
+                </div>
+
+
+
+                <div id="top-lane" class="splide mb-0 sm:mb-6">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+
+                            <!-- portfolio -->
+                            <li class="splide__slide p-4">
+                                <div
+                                    class="bg-[#111827]/50 hover:border-primary transition-colors duration-300 border border-white/10 rounded-2xl p-6 backdrop-blur-sm ">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div class="flex gap-4">
+                                            <img src="assets/image/testimonial1.jpg"
+                                                class="w-10 h-10 sm:w-18.25 sm:h-18.25 rounded-full " alt="Sarah-Johnson">
+                                            <div>
+                                                <h4
+                                                    class="text-white boldonse font-normal text-sm sm:text-[16px] sm:text-xl leading-[150%]">
+                                                    Sarah
+                                                    Johnson
+                                                </h4>
+                                                <p class="text-white text-sm sm:text-xl font-normal leading-[100%] mt-4">Marketing
+                                                    Director, FashionCo</p>
+                                            </div>
+                                        </div>
+                                        <span class="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                                                viewBox="0 0 50 50" fill="none">
+                                                <path
+                                                    d="M9.54881 36.0862C7.40298 33.8071 6.2509 31.2508 6.2509 27.1071C6.2509 19.8154 11.3696 13.28 18.8134 10.0487L20.6738 12.9196C13.7259 16.6779 12.3676 21.555 11.8259 24.63C12.9446 24.0508 14.4092 23.8487 15.8446 23.9821C19.603 24.33 22.5655 27.4154 22.5655 31.2508C22.5655 33.1847 21.7973 35.0393 20.4298 36.4068C19.0623 37.7743 17.2077 38.5425 15.2738 38.5425C13.0384 38.5425 10.9009 37.5216 9.54881 36.0862ZM30.3821 36.0862C28.2363 33.8071 27.0842 31.2508 27.0842 27.1071C27.0842 19.8154 32.203 13.28 39.6467 10.0487L41.5071 12.9196C34.5592 16.6779 33.2009 21.555 32.6592 24.63C33.778 24.0508 35.2426 23.8487 36.678 23.9821C40.4363 24.33 43.3967 27.4154 43.3967 31.2508C43.3967 33.1847 42.6285 35.0393 41.261 36.4068C39.8936 37.7743 38.0389 38.5425 36.1051 38.5425C33.8696 38.5425 31.7321 37.5216 30.3801 36.0862H30.3821Z"
+                                                    fill="url(#paint0_radial_2044_3852)" />
+                                                <defs>
+                                                    <radialGradient id="paint0_radial_2044_3852" cx="0" cy="0" r="1"
+                                                        gradientUnits="userSpaceOnUse"
+                                                        gradientTransform="translate(24.8238 24.2956) rotate(-90) scale(14.2469 18.5729)">
+                                                        <stop stop-color="#3B18B7" />
+                                                        <stop offset="1" stop-color="#F7450D" />
+                                                    </radialGradient>
+                                                </defs>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <p class="text-start text-white text-sm sm:text-lg font-normal leading-[160%] capitalize mb-6">
+                                        "Abdullah's ad
+                                        creatives completely
+                                        transformed our Facebook campaigns. CTR increased by 3x and our cost per
+                                        acquisition
+                                        dropped by 40%. His understanding of what works in the feed is exceptional."</p>
+                                    <div class="flex justify-between items-center text-xs text-gray-500">
+
+                                        <!-- LEFT -->
+                                        <div class="flex items-center gap-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21"
+                                                viewBox="0 0 22 21" fill="none">
+                                                <path
+                                                    d="M9.88903 1.80889C10.2809 0.602875 10.4768 -0.000130296 10.8401 -0.000130296C11.2034 -0.000130296 11.3993 0.602875 11.7911 1.80889L13.422 6.82814C13.5303 7.16147 13.5845 7.32814 13.7159 7.42363C13.8473 7.51912 14.0226 7.51912 14.3731 7.51912H19.6506C20.9187 7.51912 21.5527 7.51912 21.665 7.86461C21.7772 8.21011 21.2643 8.58278 20.2384 9.32814L15.9688 12.4302C15.6852 12.6362 15.5434 12.7392 15.4932 12.8937C15.443 13.0482 15.4972 13.2149 15.6055 13.5482L17.2363 18.5675C17.6282 19.7735 17.8241 20.3765 17.5302 20.59C17.2363 20.8036 16.7234 20.4309 15.6975 19.6855L11.4279 16.5835C11.1443 16.3774 11.0025 16.2744 10.8401 16.2744C10.6776 16.2744 10.5359 16.3774 10.2523 16.5835L5.98267 19.6855C4.95678 20.4309 4.44383 20.8036 4.14994 20.59C3.85604 20.3765 4.05197 19.7735 4.44383 18.5675L6.07468 13.5482C6.18299 13.2149 6.23714 13.0482 6.18694 12.8937C6.13674 12.7392 5.99496 12.6362 5.71141 12.4302L1.44178 9.32814C0.415884 8.58278 -0.0970622 8.21011 0.0151948 7.86461C0.127452 7.51912 0.76149 7.51912 2.02957 7.51912H7.30712C7.65761 7.51912 7.83285 7.51912 7.96428 7.42363C8.09572 7.32814 8.14987 7.16147 8.25818 6.82814L9.88903 1.80889Z"
+                                                    fill="#FFB800" />
+                                            </svg>
+                                            <p class="text-white text-[16px] font-normal leading-[150%]">(5.5)</p>
+                                        </div>
+
+                                        <!-- RIGHT -->
+                                        <div>
+                                            <span
+                                                class="text-white text-[16px] font-normal leading-[150%] capitalize">04
+                                                Oct
+                                                2026</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- portfolio -->
+                            <li class="splide__slide p-4">
+                                <div
+                                    class="bg-[#111827]/50 hover:border-primary transition-colors duration-300 border border-white/10 rounded-2xl p-6 backdrop-blur-sm ">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div class="flex gap-4">
+                                            <img src="assets/image/testimonial2.jpg"
+                                                class="w-10 h-10 sm:w-18.25 sm:h-18.25 rounded-full " alt="Michael-Chen">
+                                            <div>
+                                                <h4 class="text-white  boldonse font-normal text-sm sm:text-xl leading-[150%]">
+                                                    Michael Chen
+                                                </h4>
+                                                <p class="text-white text-sm sm:text-xl font-normal leading-[100%] mt-4">Founder,
+                                                    FitTrack App</p>
+                                            </div>
+                                        </div>
+                                        <span class="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                                                viewBox="0 0 50 50" fill="none">
+                                                <path
+                                                    d="M9.54881 36.0862C7.40298 33.8071 6.2509 31.2508 6.2509 27.1071C6.2509 19.8154 11.3696 13.28 18.8134 10.0487L20.6738 12.9196C13.7259 16.6779 12.3676 21.555 11.8259 24.63C12.9446 24.0508 14.4092 23.8487 15.8446 23.9821C19.603 24.33 22.5655 27.4154 22.5655 31.2508C22.5655 33.1847 21.7973 35.0393 20.4298 36.4068C19.0623 37.7743 17.2077 38.5425 15.2738 38.5425C13.0384 38.5425 10.9009 37.5216 9.54881 36.0862ZM30.3821 36.0862C28.2363 33.8071 27.0842 31.2508 27.0842 27.1071C27.0842 19.8154 32.203 13.28 39.6467 10.0487L41.5071 12.9196C34.5592 16.6779 33.2009 21.555 32.6592 24.63C33.778 24.0508 35.2426 23.8487 36.678 23.9821C40.4363 24.33 43.3967 27.4154 43.3967 31.2508C43.3967 33.1847 42.6285 35.0393 41.261 36.4068C39.8936 37.7743 38.0389 38.5425 36.1051 38.5425C33.8696 38.5425 31.7321 37.5216 30.3801 36.0862H30.3821Z"
+                                                    fill="url(#paint0_radial_2044_3852)" />
+                                                <defs>
+                                                    <radialGradient id="paint0_radial_2044_3852" cx="0" cy="0" r="1"
+                                                        gradientUnits="userSpaceOnUse"
+                                                        gradientTransform="translate(24.8238 24.2956) rotate(-90) scale(14.2469 18.5729)">
+                                                        <stop stop-color="#3B18B7" />
+                                                        <stop offset="1" stop-color="#F7450D" />
+                                                    </radialGradient>
+                                                </defs>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <p class="text-start text-white text-sm sm:text-lg font-normal leading-[160%] capitalize mb-6">
+                                        "Working with Abdullah was a game-changer for our app launch. His carousel ads
+                                        on Instagram generated over 5,000 installs in the first month. Professional,
+                                        creative, and results-driven."</p>
+                                    <div class="flex justify-between items-center text-xs text-gray-500">
+
+                                        <!-- LEFT -->
+                                        <div class="flex items-center gap-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21"
+                                                viewBox="0 0 22 21" fill="none">
+                                                <path
+                                                    d="M9.88903 1.80889C10.2809 0.602875 10.4768 -0.000130296 10.8401 -0.000130296C11.2034 -0.000130296 11.3993 0.602875 11.7911 1.80889L13.422 6.82814C13.5303 7.16147 13.5845 7.32814 13.7159 7.42363C13.8473 7.51912 14.0226 7.51912 14.3731 7.51912H19.6506C20.9187 7.51912 21.5527 7.51912 21.665 7.86461C21.7772 8.21011 21.2643 8.58278 20.2384 9.32814L15.9688 12.4302C15.6852 12.6362 15.5434 12.7392 15.4932 12.8937C15.443 13.0482 15.4972 13.2149 15.6055 13.5482L17.2363 18.5675C17.6282 19.7735 17.8241 20.3765 17.5302 20.59C17.2363 20.8036 16.7234 20.4309 15.6975 19.6855L11.4279 16.5835C11.1443 16.3774 11.0025 16.2744 10.8401 16.2744C10.6776 16.2744 10.5359 16.3774 10.2523 16.5835L5.98267 19.6855C4.95678 20.4309 4.44383 20.8036 4.14994 20.59C3.85604 20.3765 4.05197 19.7735 4.44383 18.5675L6.07468 13.5482C6.18299 13.2149 6.23714 13.0482 6.18694 12.8937C6.13674 12.7392 5.99496 12.6362 5.71141 12.4302L1.44178 9.32814C0.415884 8.58278 -0.0970622 8.21011 0.0151948 7.86461C0.127452 7.51912 0.76149 7.51912 2.02957 7.51912H7.30712C7.65761 7.51912 7.83285 7.51912 7.96428 7.42363C8.09572 7.32814 8.14987 7.16147 8.25818 6.82814L9.88903 1.80889Z"
+                                                    fill="#FFB800" />
+                                            </svg>
+                                            <p class="text-white text-[16px] font-normal leading-[150%]">(5.5)</p>
+                                        </div>
+
+                                        <!-- RIGHT -->
+                                        <div>
+                                            <span
+                                                class="text-white text-[16px] font-normal leading-[150%] capitalize">04
+                                                Oct
+                                                2026</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- portfolio -->
+                            <li class="splide__slide p-4">
+                                <div
+                                    class="bg-[#111827]/50 hover:border-primary transition-colors duration-300 border border-white/10 rounded-2xl p-6 backdrop-blur-sm ">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div class="flex gap-4">
+                                            <img src="assets/image/testimonial3.jpg"
+                                                class="w-10 h-10 sm:w-18.25 sm:h-18.25 rounded-full " alt="Emily-Rodriguez">
+                                            <div>
+                                                <h4 class="text-white boldonse font-normal text-sm sm:text-xl leading-[150%]">Emily
+                                                    Rodriguez
+                                                </h4>
+                                                <p class="text-white text-sm sm:text-xl font-normal leading-[100%] mt-4">CMO,
+                                                    TechSolutions Inc</p>
+                                            </div>
+                                        </div>
+                                        <span class="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                                                viewBox="0 0 50 50" fill="none">
+                                                <path
+                                                    d="M9.54881 36.0862C7.40298 33.8071 6.2509 31.2508 6.2509 27.1071C6.2509 19.8154 11.3696 13.28 18.8134 10.0487L20.6738 12.9196C13.7259 16.6779 12.3676 21.555 11.8259 24.63C12.9446 24.0508 14.4092 23.8487 15.8446 23.9821C19.603 24.33 22.5655 27.4154 22.5655 31.2508C22.5655 33.1847 21.7973 35.0393 20.4298 36.4068C19.0623 37.7743 17.2077 38.5425 15.2738 38.5425C13.0384 38.5425 10.9009 37.5216 9.54881 36.0862ZM30.3821 36.0862C28.2363 33.8071 27.0842 31.2508 27.0842 27.1071C27.0842 19.8154 32.203 13.28 39.6467 10.0487L41.5071 12.9196C34.5592 16.6779 33.2009 21.555 32.6592 24.63C33.778 24.0508 35.2426 23.8487 36.678 23.9821C40.4363 24.33 43.3967 27.4154 43.3967 31.2508C43.3967 33.1847 42.6285 35.0393 41.261 36.4068C39.8936 37.7743 38.0389 38.5425 36.1051 38.5425C33.8696 38.5425 31.7321 37.5216 30.3801 36.0862H30.3821Z"
+                                                    fill="url(#paint0_radial_2044_3852)" />
+                                                <defs>
+                                                    <radialGradient id="paint0_radial_2044_3852" cx="0" cy="0" r="1"
+                                                        gradientUnits="userSpaceOnUse"
+                                                        gradientTransform="translate(24.8238 24.2956) rotate(-90) scale(14.2469 18.5729)">
+                                                        <stop stop-color="#3B18B7" />
+                                                        <stop offset="1" stop-color="#F7450D" />
+                                                    </radialGradient>
+                                                </defs>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <p class="text-start text-white text-sm sm:text-lg font-normal leading-[160%] capitalize mb-6">
+                                        "The Google Display ads Abdullah created for our B2B campaign outperformed
+                                        everything we'd tried before. His strategic approach to creative testing helped
+                                        us find winning variations quickly."</p>
+                                    <div class="flex justify-between items-center text-xs text-gray-500">
+
+                                        <!-- LEFT -->
+                                        <div class="flex items-center gap-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21"
+                                                viewBox="0 0 22 21" fill="none">
+                                                <path
+                                                    d="M9.88903 1.80889C10.2809 0.602875 10.4768 -0.000130296 10.8401 -0.000130296C11.2034 -0.000130296 11.3993 0.602875 11.7911 1.80889L13.422 6.82814C13.5303 7.16147 13.5845 7.32814 13.7159 7.42363C13.8473 7.51912 14.0226 7.51912 14.3731 7.51912H19.6506C20.9187 7.51912 21.5527 7.51912 21.665 7.86461C21.7772 8.21011 21.2643 8.58278 20.2384 9.32814L15.9688 12.4302C15.6852 12.6362 15.5434 12.7392 15.4932 12.8937C15.443 13.0482 15.4972 13.2149 15.6055 13.5482L17.2363 18.5675C17.6282 19.7735 17.8241 20.3765 17.5302 20.59C17.2363 20.8036 16.7234 20.4309 15.6975 19.6855L11.4279 16.5835C11.1443 16.3774 11.0025 16.2744 10.8401 16.2744C10.6776 16.2744 10.5359 16.3774 10.2523 16.5835L5.98267 19.6855C4.95678 20.4309 4.44383 20.8036 4.14994 20.59C3.85604 20.3765 4.05197 19.7735 4.44383 18.5675L6.07468 13.5482C6.18299 13.2149 6.23714 13.0482 6.18694 12.8937C6.13674 12.7392 5.99496 12.6362 5.71141 12.4302L1.44178 9.32814C0.415884 8.58278 -0.0970622 8.21011 0.0151948 7.86461C0.127452 7.51912 0.76149 7.51912 2.02957 7.51912H7.30712C7.65761 7.51912 7.83285 7.51912 7.96428 7.42363C8.09572 7.32814 8.14987 7.16147 8.25818 6.82814L9.88903 1.80889Z"
+                                                    fill="#FFB800" />
+                                            </svg>
+                                            <p class="text-white text-[16px] font-normal leading-[150%]">(5.5)</p>
+                                        </div>
+
+                                        <!-- RIGHT -->
+                                        <div>
+                                            <span
+                                                class="text-white text-[16px] font-normal leading-[150%] capitalize">04
+                                                Oct
+                                                2026</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- bottom lane -->
+                <div id="bottom-lane" class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+
+                            <!-- portfolio -->
+                            <li class="splide__slide p-4">
+                                <div
+                                    class="bg-[#111827]/50 hover:border-primary transition-colors duration-300 border border-white/10 rounded-2xl p-6 backdrop-blur-sm ">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div class="flex gap-4">
+                                            <img src="assets/image/testimonial4.jpg"
+                                                class="w-10 h-10 sm:w-18.25 sm:h-18.25 rounded-full " alt="David-Park">
+                                            <div>
+                                                <h4 class="text-white boldonse font-normal text-sm sm:text-xl leading-[150%]">David
+                                                    Park
+                                                </h4>
+                                                <p class="text-white text-sm sm:text-xl font-normal leading-[100%] mt-4">Brand
+                                                    Manager, GadgetHub</p>
+                                            </div>
+                                        </div>
+                                        <span class="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                                                viewBox="0 0 50 50" fill="none">
+                                                <path
+                                                    d="M9.54881 36.0862C7.40298 33.8071 6.2509 31.2508 6.2509 27.1071C6.2509 19.8154 11.3696 13.28 18.8134 10.0487L20.6738 12.9196C13.7259 16.6779 12.3676 21.555 11.8259 24.63C12.9446 24.0508 14.4092 23.8487 15.8446 23.9821C19.603 24.33 22.5655 27.4154 22.5655 31.2508C22.5655 33.1847 21.7973 35.0393 20.4298 36.4068C19.0623 37.7743 17.2077 38.5425 15.2738 38.5425C13.0384 38.5425 10.9009 37.5216 9.54881 36.0862ZM30.3821 36.0862C28.2363 33.8071 27.0842 31.2508 27.0842 27.1071C27.0842 19.8154 32.203 13.28 39.6467 10.0487L41.5071 12.9196C34.5592 16.6779 33.2009 21.555 32.6592 24.63C33.778 24.0508 35.2426 23.8487 36.678 23.9821C40.4363 24.33 43.3967 27.4154 43.3967 31.2508C43.3967 33.1847 42.6285 35.0393 41.261 36.4068C39.8936 37.7743 38.0389 38.5425 36.1051 38.5425C33.8696 38.5425 31.7321 37.5216 30.3801 36.0862H30.3821Z"
+                                                    fill="url(#paint0_radial_2044_3852)" />
+                                                <defs>
+                                                    <radialGradient id="paint0_radial_2044_3852" cx="0" cy="0" r="1"
+                                                        gradientUnits="userSpaceOnUse"
+                                                        gradientTransform="translate(24.8238 24.2956) rotate(-90) scale(14.2469 18.5729)">
+                                                        <stop stop-color="#3B18B7" />
+                                                        <stop offset="1" stop-color="#F7450D" />
+                                                    </radialGradient>
+                                                </defs>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <p class="text-start text-white text-sm sm:text-lg font-normal leading-[160%] capitalize mb-6">
+                                        "Abdullah's video ads for our YouTube campaign were incredible. The 15-second
+                                        spots he created achieved a 28% view-through rate, well above our industry
+                                        benchmark. Highly recommend!"</p>
+                                    <div class="flex justify-between items-center text-xs text-gray-500">
+
+                                        <!-- LEFT -->
+                                        <div class="flex items-center gap-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21"
+                                                viewBox="0 0 22 21" fill="none">
+                                                <path
+                                                    d="M9.88903 1.80889C10.2809 0.602875 10.4768 -0.000130296 10.8401 -0.000130296C11.2034 -0.000130296 11.3993 0.602875 11.7911 1.80889L13.422 6.82814C13.5303 7.16147 13.5845 7.32814 13.7159 7.42363C13.8473 7.51912 14.0226 7.51912 14.3731 7.51912H19.6506C20.9187 7.51912 21.5527 7.51912 21.665 7.86461C21.7772 8.21011 21.2643 8.58278 20.2384 9.32814L15.9688 12.4302C15.6852 12.6362 15.5434 12.7392 15.4932 12.8937C15.443 13.0482 15.4972 13.2149 15.6055 13.5482L17.2363 18.5675C17.6282 19.7735 17.8241 20.3765 17.5302 20.59C17.2363 20.8036 16.7234 20.4309 15.6975 19.6855L11.4279 16.5835C11.1443 16.3774 11.0025 16.2744 10.8401 16.2744C10.6776 16.2744 10.5359 16.3774 10.2523 16.5835L5.98267 19.6855C4.95678 20.4309 4.44383 20.8036 4.14994 20.59C3.85604 20.3765 4.05197 19.7735 4.44383 18.5675L6.07468 13.5482C6.18299 13.2149 6.23714 13.0482 6.18694 12.8937C6.13674 12.7392 5.99496 12.6362 5.71141 12.4302L1.44178 9.32814C0.415884 8.58278 -0.0970622 8.21011 0.0151948 7.86461C0.127452 7.51912 0.76149 7.51912 2.02957 7.51912H7.30712C7.65761 7.51912 7.83285 7.51912 7.96428 7.42363C8.09572 7.32814 8.14987 7.16147 8.25818 6.82814L9.88903 1.80889Z"
+                                                    fill="#FFB800" />
+                                            </svg>
+                                            <p class="text-white text-[16px] font-normal leading-[150%]">(5.5)</p>
+                                        </div>
+
+                                        <!-- RIGHT -->
+                                        <div>
+                                            <span
+                                                class="text-white text-[16px] font-normal leading-[150%] capitalize">04
+                                                Oct
+                                                2026</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- portfolio -->
+                            <li class="splide__slide p-4">
+                                <div
+                                    class="bg-[#111827]/50 hover:border-primary transition-colors duration-300 border border-white/10 rounded-2xl p-6 backdrop-blur-sm ">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div class="flex gap-4">
+                                            <img src="assets/image/testimonial5.jpg"
+                                                class="w-10 h-10 sm:w-18.25 sm:h-18.25 rounded-full " alt="Lisa-Thompson">
+                                            <div>
+                                                <h4 class="text-white boldonse font-normal text-sm sm:text-xl leading-[150%]">Lisa
+                                                    Thompson
+                                                </h4>
+                                                <p class="text-white text-sm sm:text-xl font-normal leading-[100%] mt-4">VP
+                                                    Marketing, ConsultPro</p>
+                                            </div>
+                                        </div>
+                                        <span class="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                                                viewBox="0 0 50 50" fill="none">
+                                                <path
+                                                    d="M9.54881 36.0862C7.40298 33.8071 6.2509 31.2508 6.2509 27.1071C6.2509 19.8154 11.3696 13.28 18.8134 10.0487L20.6738 12.9196C13.7259 16.6779 12.3676 21.555 11.8259 24.63C12.9446 24.0508 14.4092 23.8487 15.8446 23.9821C19.603 24.33 22.5655 27.4154 22.5655 31.2508C22.5655 33.1847 21.7973 35.0393 20.4298 36.4068C19.0623 37.7743 17.2077 38.5425 15.2738 38.5425C13.0384 38.5425 10.9009 37.5216 9.54881 36.0862ZM30.3821 36.0862C28.2363 33.8071 27.0842 31.2508 27.0842 27.1071C27.0842 19.8154 32.203 13.28 39.6467 10.0487L41.5071 12.9196C34.5592 16.6779 33.2009 21.555 32.6592 24.63C33.778 24.0508 35.2426 23.8487 36.678 23.9821C40.4363 24.33 43.3967 27.4154 43.3967 31.2508C43.3967 33.1847 42.6285 35.0393 41.261 36.4068C39.8936 37.7743 38.0389 38.5425 36.1051 38.5425C33.8696 38.5425 31.7321 37.5216 30.3801 36.0862H30.3821Z"
+                                                    fill="url(#paint0_radial_2044_3852)" />
+                                                <defs>
+                                                    <radialGradient id="paint0_radial_2044_3852" cx="0" cy="0" r="1"
+                                                        gradientUnits="userSpaceOnUse"
+                                                        gradientTransform="translate(24.8238 24.2956) rotate(-90) scale(14.2469 18.5729)">
+                                                        <stop stop-color="#3B18B7" />
+                                                        <stop offset="1" stop-color="#F7450D" />
+                                                    </radialGradient>
+                                                </defs>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <p class="text-start text-white text-sm sm:text-lg font-normal leading-[160%] capitalize mb-6">
+                                        "Our LinkedIn campaign with Abdullah's creatives generated 180 high-quality
+                                        leads in just 30 days. His understanding of B2B audiences and professional
+                                        design aesthetic is outstanding."</p>
+                                    <div class="flex justify-between items-center text-xs text-gray-500">
+
+                                        <!-- LEFT -->
+                                        <div class="flex items-center gap-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21"
+                                                viewBox="0 0 22 21" fill="none">
+                                                <path
+                                                    d="M9.88903 1.80889C10.2809 0.602875 10.4768 -0.000130296 10.8401 -0.000130296C11.2034 -0.000130296 11.3993 0.602875 11.7911 1.80889L13.422 6.82814C13.5303 7.16147 13.5845 7.32814 13.7159 7.42363C13.8473 7.51912 14.0226 7.51912 14.3731 7.51912H19.6506C20.9187 7.51912 21.5527 7.51912 21.665 7.86461C21.7772 8.21011 21.2643 8.58278 20.2384 9.32814L15.9688 12.4302C15.6852 12.6362 15.5434 12.7392 15.4932 12.8937C15.443 13.0482 15.4972 13.2149 15.6055 13.5482L17.2363 18.5675C17.6282 19.7735 17.8241 20.3765 17.5302 20.59C17.2363 20.8036 16.7234 20.4309 15.6975 19.6855L11.4279 16.5835C11.1443 16.3774 11.0025 16.2744 10.8401 16.2744C10.6776 16.2744 10.5359 16.3774 10.2523 16.5835L5.98267 19.6855C4.95678 20.4309 4.44383 20.8036 4.14994 20.59C3.85604 20.3765 4.05197 19.7735 4.44383 18.5675L6.07468 13.5482C6.18299 13.2149 6.23714 13.0482 6.18694 12.8937C6.13674 12.7392 5.99496 12.6362 5.71141 12.4302L1.44178 9.32814C0.415884 8.58278 -0.0970622 8.21011 0.0151948 7.86461C0.127452 7.51912 0.76149 7.51912 2.02957 7.51912H7.30712C7.65761 7.51912 7.83285 7.51912 7.96428 7.42363C8.09572 7.32814 8.14987 7.16147 8.25818 6.82814L9.88903 1.80889Z"
+                                                    fill="#FFB800" />
+                                            </svg>
+                                            <p class="text-white text-[16px] font-normal leading-[150%]">(5.5)</p>
+                                        </div>
+
+                                        <!-- RIGHT -->
+                                        <div>
+                                            <span
+                                                class="text-white text-[16px] font-normal leading-[150%] capitalize">04
+                                                Oct
+                                                2026</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- portfolio -->
+                            <li class="splide__slide p-4">
+                                <div
+                                    class="bg-[#111827]/50 hover:border-primary transition-colors duration-300 border border-white/10 rounded-2xl p-6 backdrop-blur-sm ">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div class="flex gap-4">
+                                            <img src="assets/image/testimonial6.jpg"
+                                                class="w-10 h-10 sm:w-18.25 sm:h-18.25 rounded-full " alt="James-Wilson">
+                                            <div>
+                                                <h4 class="text-white boldonse font-normal text-sm sm:text-xl leading-[150%]">James
+                                                    Wilson
+                                                </h4>
+                                                <p class="text-white text-sm sm:text-xl font-normal leading-[100%] mt-4">CEO,
+                                                    GameStudio</p>
+                                            </div>
+                                        </div>
+                                        <span class="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                                                viewBox="0 0 50 50" fill="none">
+                                                <path
+                                                    d="M9.54881 36.0862C7.40298 33.8071 6.2509 31.2508 6.2509 27.1071C6.2509 19.8154 11.3696 13.28 18.8134 10.0487L20.6738 12.9196C13.7259 16.6779 12.3676 21.555 11.8259 24.63C12.9446 24.0508 14.4092 23.8487 15.8446 23.9821C19.603 24.33 22.5655 27.4154 22.5655 31.2508C22.5655 33.1847 21.7973 35.0393 20.4298 36.4068C19.0623 37.7743 17.2077 38.5425 15.2738 38.5425C13.0384 38.5425 10.9009 37.5216 9.54881 36.0862ZM30.3821 36.0862C28.2363 33.8071 27.0842 31.2508 27.0842 27.1071C27.0842 19.8154 32.203 13.28 39.6467 10.0487L41.5071 12.9196C34.5592 16.6779 33.2009 21.555 32.6592 24.63C33.778 24.0508 35.2426 23.8487 36.678 23.9821C40.4363 24.33 43.3967 27.4154 43.3967 31.2508C43.3967 33.1847 42.6285 35.0393 41.261 36.4068C39.8936 37.7743 38.0389 38.5425 36.1051 38.5425C33.8696 38.5425 31.7321 37.5216 30.3801 36.0862H30.3821Z"
+                                                    fill="url(#paint0_radial_2044_3852)" />
+                                                <defs>
+                                                    <radialGradient id="paint0_radial_2044_3852" cx="0" cy="0" r="1"
+                                                        gradientUnits="userSpaceOnUse"
+                                                        gradientTransform="translate(24.8238 24.2956) rotate(-90) scale(14.2469 18.5729)">
+                                                        <stop stop-color="#3B18B7" />
+                                                        <stop offset="1" stop-color="#F7450D" />
+                                                    </radialGradient>
+                                                </defs>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <p class="text-start text-white text-sm sm:text-lg font-normal leading-[160%] capitalize mb-6">
+                                        "The animated ads Abdullah created for our mobile game launch were phenomenal.
+                                        15,000+ installs with a 4.2% conversion rate. His creative approach made all the
+                                        difference."s</p>
+                                    <div class="flex justify-between items-center text-xs text-gray-500">
+
+                                        <!-- LEFT -->
+                                        <div class="flex items-center gap-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21"
+                                                viewBox="0 0 22 21" fill="none">
+                                                <path
+                                                    d="M9.88903 1.80889C10.2809 0.602875 10.4768 -0.000130296 10.8401 -0.000130296C11.2034 -0.000130296 11.3993 0.602875 11.7911 1.80889L13.422 6.82814C13.5303 7.16147 13.5845 7.32814 13.7159 7.42363C13.8473 7.51912 14.0226 7.51912 14.3731 7.51912H19.6506C20.9187 7.51912 21.5527 7.51912 21.665 7.86461C21.7772 8.21011 21.2643 8.58278 20.2384 9.32814L15.9688 12.4302C15.6852 12.6362 15.5434 12.7392 15.4932 12.8937C15.443 13.0482 15.4972 13.2149 15.6055 13.5482L17.2363 18.5675C17.6282 19.7735 17.8241 20.3765 17.5302 20.59C17.2363 20.8036 16.7234 20.4309 15.6975 19.6855L11.4279 16.5835C11.1443 16.3774 11.0025 16.2744 10.8401 16.2744C10.6776 16.2744 10.5359 16.3774 10.2523 16.5835L5.98267 19.6855C4.95678 20.4309 4.44383 20.8036 4.14994 20.59C3.85604 20.3765 4.05197 19.7735 4.44383 18.5675L6.07468 13.5482C6.18299 13.2149 6.23714 13.0482 6.18694 12.8937C6.13674 12.7392 5.99496 12.6362 5.71141 12.4302L1.44178 9.32814C0.415884 8.58278 -0.0970622 8.21011 0.0151948 7.86461C0.127452 7.51912 0.76149 7.51912 2.02957 7.51912H7.30712C7.65761 7.51912 7.83285 7.51912 7.96428 7.42363C8.09572 7.32814 8.14987 7.16147 8.25818 6.82814L9.88903 1.80889Z"
+                                                    fill="#FFB800" />
+                                            </svg>
+                                            <p class="text-white text-[16px] font-normal leading-[150%]">(5.5)</p>
+                                        </div>
+
+                                        <!-- RIGHT -->
+                                        <div>
+                                            <span
+                                                class="text-white text-[16px] font-normal leading-[150%] capitalize">04
+                                                Oct
+                                                2026</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+    <!--===================== Testimonial section ==================-->
+
+
+
+
+    <!--===================== Hiring banner section ==================-->
+    <section class="bg-tertiary px-4">
+
+        <div
+            class="w-full gradbg flex flex-col items-center justify-center p-8  relative overflow-hidden rounded-3xl px-4 py-8 lg:p-28">
+            <img src="assets/image/creative-proccess-shape.svg" alt="background pattern"
+                class="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+
+            <div class=" container relative z-10 flex flex-col items-center text-center">
+                <h1
+                    class="boldonse text-white text-2xl sm:text-[32px] md:[48px] lg:text-[56px] font-normal leading-[160%] max-w-286.5">
+                    Ready to Create High-Converting Ad Creatives?
+                </h1>
+
+                <p class="mt-6 text-white text-xl sm:text-2xl md:text-[26px] font-normal leading-[150%] max-w-[792px]">
+                    Let's work together to create ad campaigns that capture attention, engage your audience, and
+                </p>
+
+                <div class="mt-10 flex flex-wrap justify-center gap-4">
+                    <a href="#"
+                        class=" group flex items-center gap-2 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,#EE3900_0%,#F7450D_100%)] 
+                            shadow-[inset_0_0_10px_rgba(255,255,255,0.25),inset_0_0_20px_rgba(255,255,255,0.50)] text-white boldonse text-[12px]  md:text-lg leading-6 px-6 md:px-8 py-4 md:py-6 transition-all hover:scale-105 ">
+                        Start Your Projects
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 34 24" fill="none">
+                            <path d="M29.5 12L4.5 12" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M22 21C22 21 31 14.3716 31 12C31 9.6282 22 3 22 3" stroke="white" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+
+                    <a href="#"
+                        class=" group flex items-center gap-2 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,_#FFF_0%,_#FFCDBD_100%)] 
+            shadow-[inset_0_0_10px_0_rgba(255,255,255,0.25),_inset_0_0_20px_0_rgba(255,255,255,0.5)]  text-primary   boldonse text-[12px]  md:text-lg leading-6 px-6 md:px-8 py-4 md:py-6 transition-all hover:scale-105 ">
+                        View Portfolio
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 34 24" fill="none">
+                            <path d="M29.5 12L4.5 12" stroke="#F23F06" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M22 21C22 21 31 14.3716 31 12C31 9.6282 22 3 22 3" stroke="#F23F06"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </section>
+    <!--===================== Hiring banner section ==================-->
+
+
+    <!--===================== Footer section ==================-->
+    <footer class="bg-tertiary px-4 pt-3.75">
+        <div class="relative overflow-hidden rounded-3xl pt-20">
+            <img src="assets/image/footerbg.svg" alt="Footer-background"
+                class="absolute inset-0 w-full h-full object-cover z-10" />
+            <div class="container relative z-20">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-6">
+
+                    <!-- LEFT (4 columns) -->
+                    <div class="space-y-6 lg:col-span-4">
+                        <a href="index.html" class="flex items-center gap-4">
+                            <img src="assets/image/Footer-person.png" alt="Profile" class="w-12 h-12 rounded-full">
+                            <h2 class="text-white text-[26px] font-bold leading-10">Abdullah Al Masud</h2>
+                        </a>
+                        <p class="text-white text-[16px] font-normal leading-6 max-w-67.25">
+                            I craft intuitive digital experiences with a focus on usability and detail.
+                        </p>
+                        <div class="flex gap-3">
+                            <a href="#"
+                                class="p-2.5 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <path
+                                        d="M21.5999 21.6007V14.5687C21.5999 11.1127 20.8559 8.47266 16.8239 8.47266C14.8799 8.47266 13.5839 9.52866 13.0559 10.5367H13.0079V8.78466H9.19189V21.6007H13.1759V15.2407C13.1759 13.5607 13.4879 11.9527 15.5519 11.9527C17.5919 11.9527 17.6159 13.8487 17.6159 15.3367V21.5767H21.5999V21.6007Z"
+                                        fill="white" />
+                                    <path d="M2.71191 8.78418H6.69591V21.6002H2.71191V8.78418Z" fill="white" />
+                                    <path
+                                        d="M4.7039 2.40039C3.4319 2.40039 2.3999 3.43239 2.3999 4.70439C2.3999 5.97639 3.4319 7.03239 4.7039 7.03239C5.9759 7.03239 7.0079 5.97639 7.0079 4.70439C7.0079 3.43239 5.9759 2.40039 4.7039 2.40039Z"
+                                        fill="white" />
+                                </svg>
+                            </a>
+                            <a href="#"
+                                class="p-2.5  rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <g clip-path="url(#clip0_2047_4264)">
+                                        <path
+                                            d="M22.391 5.97645C21.3179 4.13803 19.8623 2.68243 18.0238 1.60938C16.185 0.536388 14.1777 0 12.0004 0C9.82322 0 7.81531 0.536388 5.97684 1.60938C4.13825 2.68227 2.68265 4.13787 1.60955 5.97645C0.536388 7.81515 0 9.82306 0 12C0 14.1771 0.536552 16.1847 1.60938 18.0235C2.68243 19.8619 4.13803 21.3175 5.97662 22.3907C7.81531 23.4636 9.82306 24.0001 12.0001 24.0001C14.1772 24.0001 16.1852 23.4636 18.0238 22.3907C19.8622 21.3179 21.3178 19.8619 22.3908 18.0235C23.4636 16.1849 23.9999 14.177 23.9999 12C24 9.82284 23.4636 7.81487 22.391 5.97645ZM12.0002 1.75003C14.5834 1.75003 16.8387 2.60417 18.7657 4.3124L18.5704 4.58565C18.4923 4.69522 18.297 4.90592 17.9846 5.21858C17.6721 5.53097 17.331 5.82803 16.9612 6.10922C16.5912 6.39052 16.0889 6.71079 15.4532 7.07019C14.8177 7.42959 14.1407 7.74488 13.4219 8.01567C12.224 5.80713 10.9429 3.81755 9.57826 2.04682C10.4013 1.84893 11.2086 1.75003 12.0002 1.75003ZM3.96909 5.64026C4.96902 4.38009 6.18759 3.41119 7.62524 2.73421C8.91687 4.45294 10.1876 6.42183 11.4377 8.6405C8.27103 9.47384 5.11487 9.89054 1.969 9.89038C2.30251 8.31755 2.96915 6.9007 3.96909 5.64026ZM2.43758 15.6956C1.97918 14.5238 1.75003 13.2918 1.75003 12C1.75003 11.8541 1.7554 11.7447 1.76569 11.6719C5.53671 11.6719 9.04204 11.1876 12.2816 10.2187C12.615 10.8645 12.8911 11.4426 13.1098 11.9532C13.0676 11.974 13.0004 11.9973 12.9066 12.0234C12.8125 12.0494 12.745 12.0675 12.703 12.0781L12.125 12.2812C11.729 12.4271 11.2106 12.6771 10.5702 13.0311C9.92967 13.3856 9.25 13.8073 8.53121 14.297C7.81241 14.7867 7.07019 15.4351 6.30466 16.2427C5.53901 17.0499 4.8958 17.9169 4.37495 18.8439C3.54161 17.9169 2.89587 16.8671 2.43758 15.6956ZM12.0002 22.2502C9.56261 22.2502 7.38553 21.4688 5.4688 19.9065L5.7032 20.0784C6.06774 19.2761 6.60413 18.5052 7.31264 17.7658C8.02103 17.0264 8.70327 16.4297 9.35951 15.9764C10.0158 15.5236 10.7292 15.0966 11.5002 14.695C12.271 14.2943 12.7968 14.0388 13.0783 13.9298C13.3596 13.8204 13.5836 13.7343 13.7502 13.6717L13.7813 13.656H13.8128C14.8333 16.3331 15.5628 18.927 16.0001 21.4374C14.7085 21.9793 13.3753 22.25 12.0002 22.2502ZM20.6256 17.5392C19.8547 18.732 18.891 19.7192 17.7351 20.5002C17.3076 18.1044 16.6413 15.6614 15.7348 13.172C17.8078 12.8487 19.9379 13 22.1255 13.6248C21.8962 15.0415 21.3962 16.3465 20.6256 17.5392ZM22.094 11.8594C21.9898 11.8387 21.8595 11.8151 21.7033 11.7892C21.5471 11.7633 21.3568 11.7319 21.1328 11.6955C20.9091 11.659 20.6588 11.6253 20.3829 11.5939C20.1068 11.5627 19.8126 11.5341 19.4998 11.5081C19.1874 11.4819 18.854 11.4613 18.5001 11.4455C18.1455 11.43 17.7863 11.4221 17.4216 11.4221C17.0574 11.4221 16.6742 11.4327 16.2734 11.4534C15.8725 11.4739 15.4846 11.5108 15.1096 11.5628C15.0781 11.5106 15.0392 11.4246 14.9923 11.3048C14.9455 11.1851 14.9114 11.0938 14.8912 11.0313C14.693 10.5938 14.4638 10.0989 14.2031 9.54701C14.9219 9.25515 15.607 8.91934 16.2584 8.53903C16.9092 8.15873 17.4297 7.8204 17.8206 7.52356C18.2113 7.22638 18.581 6.91126 18.9299 6.57802C19.279 6.24473 19.5053 6.01307 19.6098 5.88281C19.7141 5.75234 19.813 5.62483 19.9066 5.49999L19.9223 5.48423C21.4431 7.33841 22.2195 9.47373 22.2503 11.8906L22.094 11.8594Z"
+                                            fill="white" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_2047_4264">
+                                            <rect width="24" height="24" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </a>
+                            <a href="#"
+                                class="p-2.5  rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <g clip-path="url(#clip0_2047_4266)">
+                                        <path
+                                            d="M9.87381 11.2796C10.3719 11.0291 10.7484 10.75 11.0064 10.4485C11.4654 9.90547 11.692 9.18541 11.692 8.29283C11.692 7.42426 11.4654 6.6817 11.0124 6.05915C10.2563 5.04507 8.97674 4.52603 7.16759 4.49902H0V19.1297H6.68305C7.43611 19.1297 8.13367 19.0652 8.77872 18.9332C9.42377 18.7997 9.98182 18.5552 10.4544 18.1981C10.8744 17.8876 11.2254 17.5021 11.5044 17.0476C11.9455 16.3605 12.166 15.5819 12.166 14.7149C12.166 13.8748 11.9725 13.1592 11.5885 12.5712C11.1999 11.9831 10.6299 11.5526 9.87381 11.2796ZM2.95674 7.04023H6.18501C6.89457 7.04023 7.47961 7.11674 7.93865 7.26825C8.46969 7.48877 8.73522 7.93731 8.73522 8.62136C8.73522 9.23491 8.5327 9.66395 8.13217 9.90547C7.72863 10.147 7.20509 10.2685 6.56304 10.2685H2.95674V7.04023ZM8.06166 16.3335C7.70463 16.506 7.20209 16.5915 6.55854 16.5915H2.95674V12.6897H6.60804C7.24409 12.6942 7.73913 12.7782 8.09316 12.9357C8.72322 13.2207 9.03674 13.7428 9.03674 14.5063C9.03674 15.4064 8.71271 16.0125 8.06166 16.3335Z"
+                                            fill="white" />
+                                        <path d="M21.6932 5.18164H15.3372V7.00279H21.6932V5.18164Z" fill="white" />
+                                        <path
+                                            d="M23.9015 12.3688C23.7695 11.5212 23.4785 10.7756 23.0254 10.1321C22.5289 9.40304 21.8988 8.86899 21.1323 8.53147C20.3687 8.19244 19.5091 8.02292 18.5521 8.02442C16.9454 8.02442 15.6403 8.52697 14.6307 9.52455C13.6242 10.5251 13.1201 11.9637 13.1201 13.8389C13.1201 15.8386 13.6767 17.2832 14.7958 18.1698C15.9103 19.0578 17.1975 19.5004 18.6586 19.5004C20.4272 19.5004 21.8028 18.9738 22.7854 17.9237C23.414 17.2607 23.7695 16.6081 23.8475 15.9676H20.9193C20.7497 16.2841 20.5532 16.5316 20.3282 16.7116C19.9202 17.0417 19.3891 17.2067 18.7381 17.2067C18.1185 17.2067 17.5935 17.0702 17.1554 16.7986C16.4324 16.3636 16.0544 15.6015 16.0064 14.517H23.9975C24.0095 13.5824 23.9795 12.8638 23.9015 12.3688ZM16.0784 12.6493C16.1834 11.9457 16.4384 11.3877 16.8434 10.9752C17.2485 10.5641 17.8215 10.3571 18.5551 10.3556C19.2316 10.3556 19.7972 10.5491 20.2577 10.9377C20.7122 11.3292 20.9688 11.8977 21.0213 12.6493H16.0784Z"
+                                            fill="white" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_2047_4266">
+                                            <rect width="24" height="24" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </a>
+                            <a href="#"
+                                class="p-2.5  rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <g clip-path="url(#clip0_2047_4268)">
+                                        <path
+                                            d="M18 0H6.00034C2.70072 0 0.000488281 2.70023 0.000488281 5.99985V18.0001C0.000488281 21.2989 2.70072 24 6.00034 24H18C21.2997 24 23.9999 21.2989 23.9999 18.0001V5.99985C23.9999 2.70023 21.2997 0 18 0ZM21.9999 18.0001C21.9999 20.2051 20.2062 22 18 22H6.00034C3.7951 22 2.00054 20.2051 2.00054 18.0001V5.99985C2.00054 3.79432 3.7951 2.00005 6.00034 2.00005H18C20.2062 2.00005 21.9999 3.79432 21.9999 5.99985V18.0001Z"
+                                            fill="white" />
+                                        <path
+                                            d="M18.5009 6.99993C19.3293 6.99993 20.0009 6.32837 20.0009 5.49996C20.0009 4.67156 19.3293 4 18.5009 4C17.6725 4 17.001 4.67156 17.001 5.49996C17.001 6.32837 17.6725 6.99993 18.5009 6.99993Z"
+                                            fill="white" />
+                                        <path
+                                            d="M12.0001 6C8.68576 6 6.00024 8.68581 6.00024 11.9999C6.00024 15.3127 8.68576 18.0003 12.0001 18.0003C15.3135 18.0003 18 15.3127 18 11.9999C18 8.68581 15.3135 6 12.0001 6ZM12.0001 16.0002C9.79123 16.0002 8.00029 14.2093 8.00029 11.9999C8.00029 9.7904 9.79123 8.00005 12.0001 8.00005C14.209 8.00005 15.9999 9.7904 15.9999 11.9999C15.9999 14.2093 14.209 16.0002 12.0001 16.0002Z"
+                                            fill="white" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_2047_4268">
+                                            <rect width="24" height="24" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT (8 columns) -->
+                    <div class="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-12">
+
+                        <!-- Services -->
+                        <div class="footer">
+                            <h3 class="footer-title">Services</h3>
+                            <ul class="footer-list">
+                                <li><a href="#">UI Design</a></li>
+                                <li><a href="#">UX Research</a></li>
+                                <li><a href="#">Motion Design</a></li>
+                                <li><a href="#">Brand Strategy</a></li>
+                                <li><a href="#">Art Direction</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Connect -->
+                        <div class="footer">
+                            <h3 class="footer-title">Connect</h3>
+                            <ul class="footer-list">
+                                <li><a href="#">LinkedIn</a></li>
+                                <li><a href="#">Dribbble</a></li>
+                                <li><a href="#">Behance</a></li>
+                                <li><a href="#">Instagram</a></li>
+                                <li><a href="#">Twitter</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Contact -->
+                        <div class="footer">
+                            <h3 class="footer-title">Contact</h3>
+                            <ul class="footer-list">
+                                <li>
+                                    <a href="mailto:hello@abdullahalmasud.com">
+                                        hello@abdullahalmasud.com
+                                    </a>
+                                </li>
+                                <li class="phone">+1 (555) 123-4567</li>
+                                <li>Brooklyn, NY</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="border-t border-white/10 py-6 text-center">
+                    <p class="text-white/75 text-lg font-normal leading-12">&copy; 2026 All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+
+
+    </footer>
+    <!--===================== Footer section ==================-->
+
+
+
+
+
+
+
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/SplitText.min.js"></script>
+    <script src="assets/js/splide.min.js"></script>
+    <script src="assets/js/splide-extension-auto-scroll.min.js">
+    </script>
+    <script src="assets/js/lenis.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

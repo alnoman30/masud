@@ -125,217 +125,172 @@ document.querySelectorAll(".overlay-list a").forEach(link => {
 
 // ================= NAV PILL =================
 
-const pill = document.querySelector(".nav-pill");
-const links = document.querySelectorAll(".nav-list-desktop ul li a");
-
-let activeLink = document.querySelector(".nav-list-desktop a.active");
-let pillTl;
-
-// Move pill function
-function movePill(target) {
-    const rect = target.getBoundingClientRect();
-    const parentRect = document
-        .querySelector(".nav-list-desktop")
-        .getBoundingClientRect();
-
-    const x = rect.left - parentRect.left;
-    const w = rect.width;
-    const h = rect.height;
-
-    // kill previous animation to avoid stacking issues
-    pillTl?.kill();
-
-    pillTl = gsap.timeline();
-
-    // Step 1: move
-    pillTl.to(pill, {
-        x,
-        duration: 0.18,
-        ease: "power2.out"
+document.querySelectorAll('.nav-list-desktop ul li a').forEach(link => {
+    const hoverTimeline = gsap.timeline({
+        paused: true,
+        reversed: true,
     });
 
-    // Step 2: stretch
-    pillTl.to(pill, {
-        width: w + 10,
-        height: h + 4,
-        duration: 0.12,
-        ease: "power1.out"
-    }, "<");
-
-    // Step 3: settle
-    pillTl.to(pill, {
-        width: w,
-        height: h,
-        duration: 0.18,
-        ease: "power3.out"
-    });
-}
-
-// Initial position
-window.addEventListener("load", () => {
-    if (activeLink) movePill(activeLink);
-});
-
-// Click behavior (set active permanently)
-links.forEach(link => {
-
-    link.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        activeLink?.classList.remove("active");
-        link.classList.add("active");
-        activeLink = link;
-
-        movePill(link);
+    hoverTimeline.to(link, {
+        duration: 0.6,
+        backgroundImage: 'linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%)',
+        color: '#fff',
+        ease: 'power2.out'
+    }).to(link.querySelector("::after"), {
+        duration: 0.6,
+        opacity: 1,
+        transform: 'scale(1)',
+        ease: 'power2.out'
     });
 
-    // Hover in → move pill
-    link.addEventListener("mouseenter", () => {
-        movePill(link);
+    link.addEventListener('mouseenter', () => {
+        hoverTimeline.play();
     });
 
-    // Hover out → return to active
-    link.addEventListener("mouseleave", () => {
-        if (activeLink) movePill(activeLink);
+    link.addEventListener('mouseleave', () => {
+        hoverTimeline.reverse();
+    });
+
+    link.addEventListener('click', () => {
+        document.querySelectorAll('.nav-list-desktop ul li a').forEach(item => item.classList.remove('active'));
+        link.classList.add('active');
+        gsap.to(link, {
+            duration: 0.6,
+            backgroundImage: 'linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%)',
+            color: '#fff',
+            ease: 'power3.out'
+        });
     });
 });
 
 // Accordion service section
 document.addEventListener("DOMContentLoaded", () => {
 
-    const items = document.querySelectorAll(".spec-item");
-    const mainImg = document.getElementById("mainSpecImage");
+  const items = document.querySelectorAll(".spec-item");
+  const mainImg = document.getElementById("mainSpecImage");
 
-    items.forEach(item => {
+  items.forEach(item => {
 
-        const content = item.querySelector(".spec-content");
-        const title = item.querySelector(".spec-title");
-        const index = item.querySelector(".spec-index");
+    const content = item.querySelector(".spec-content");
+    const title = item.querySelector(".spec-title");
+    const index = item.querySelector(".spec-index");
 
-        // Initial state for content
-        content.style.height = "0px";
-        content.style.opacity = "0";
+    // INITIAL STATE
+    content.style.height = "0px";
+    content.style.opacity = "0";
 
-        let hoverTl;
+    // ---------------- CLICK ----------------
+    item.addEventListener("click", () => {
 
-        // ================= CLICK =================
-        item.addEventListener("click", () => {
+      const isActive = item.classList.contains("active");
 
-            const isActive = item.classList.contains("active");
+      // CLOSE ALL
+      items.forEach(i => {
+        i.classList.remove("active");
 
-            // Close all items
-            items.forEach(i => {
+        const c = i.querySelector(".spec-content");
 
-                i.classList.remove("active");
+        gsap.killTweensOf(c);
 
-                const c = i.querySelector(".spec-content");
-                const t = i.querySelector(".spec-title");
-                const ind = i.querySelector(".spec-index");
-
-                gsap.killTweensOf(c);
-
-                gsap.to(c, {
-                    height: 0,
-                    opacity: 0,
-                    duration: 0.4,
-                    ease: "power2.inOut"
-                });
-
-                gsap.to([t, ind], {
-                    backgroundPosition: "100% 0%",
-                    duration: 0.3
-                });
-            });
-
-            if (isActive) return; // If already active, prevent toggle
-
-            item.classList.add("active");
-
-            content.style.height = "auto";
-            const fullHeight = content.scrollHeight;
-            content.style.height = "0px";
-
-            gsap.killTweensOf(content);
-
-            gsap.to(content, {
-                height: fullHeight,
-                opacity: 1,
-                duration: 0.6,
-                ease: "power3.out",
-                onComplete: () => {
-                    content.style.height = "auto";
-                }
-            });
-
-            gsap.to([title, index], {
-                backgroundPosition: "0% 0%",
-                duration: 0.4
-            });
-
-            // Image switch
-            const img = item.getAttribute("data-image");
-
-            if (img && mainImg) {
-
-                gsap.to(mainImg, {
-                    opacity: 0,
-                    scale: 0.95,
-                    duration: 0.2,
-                    onComplete: () => {
-                        mainImg.src = img;
-
-                        gsap.to(mainImg, {
-                            opacity: 1,
-                            scale: 1,
-                            duration: 0.4,
-                            ease: "power2.out"
-                        });
-                    }
-                });
-            }
+        gsap.to(c, {
+          height: 0,
+          opacity: 0,
+          duration: 0.4,
+          ease: "power2.inOut"
         });
 
-        // ================= HOVER (FIXED - NO STACKING) =================
-        item.addEventListener("mouseenter", () => {
+        // RESET GRADIENT
+        const t = i.querySelector(".spec-title");
+        const ind = i.querySelector(".spec-index");
 
-            if (item.classList.contains("active")) return; // Skip if item is active
-
-            gsap.killTweensOf([title, index]); // Kill previous tweens
-
-            hoverTl?.kill(); // Kill any previous hover timeline
-
-            hoverTl = gsap.timeline(); // Create a new timeline
-
-            hoverTl.to(index, {
-                backgroundPosition: "0% 0%",
-                duration: 0.3,
-                ease: "power2.out"
-            })
-            .to(title, {
-                backgroundPosition: "0% 0%",
-                duration: 0.35,
-                ease: "power2.out"
-            }, "-=0.1");
+        gsap.to([t, ind], {
+          backgroundPosition: "100% 0%",
+          duration: 0.3
         });
+      });
 
-        item.addEventListener("mouseleave", () => {
+      if (isActive) return;
 
-            if (item.classList.contains("active")) return; // Skip if item is active
+      // OPEN CURRENT
+      item.classList.add("active");
 
-            gsap.killTweensOf([title, index]); // Kill previous tweens
+      content.style.height = "auto";
+      const fullHeight = content.scrollHeight;
+      content.style.height = "0px";
 
-            hoverTl?.kill(); // Kill any previous hover timeline
+      gsap.killTweensOf(content);
 
-            hoverTl = gsap.timeline(); // Create a new timeline
+      gsap.to(content, {
+        height: fullHeight,
+        opacity: 1,
+        duration: 0.6,
+        ease: "power3.out",
+        onComplete: () => {
+          content.style.height = "auto";
+        }
+      });
 
-            hoverTl.to([title, index], {
-                backgroundPosition: "100% 0%",
-                duration: 0.35,
-                ease: "power2.out"
+      // SET ACTIVE GRADIENT
+      gsap.to([title, index], {
+        backgroundPosition: "0% 0%",
+        duration: 0.4
+      });
+
+      // IMAGE SWITCH
+      const img = item.getAttribute("data-image");
+
+      if (img && mainImg) {
+        gsap.to(mainImg, {
+          opacity: 0,
+          scale: 0.95,
+          duration: 0.2,
+          onComplete: () => {
+            mainImg.src = img;
+
+            gsap.to(mainImg, {
+              opacity: 1,
+              scale: 1,
+              duration: 0.4,
+              ease: "power2.out"
             });
+          }
         });
-
+      }
     });
+
+    // ---------------- HOVER (PREMIUM EFFECT) ----------------
+    item.addEventListener("mouseenter", () => {
+
+      if (item.classList.contains("active")) return;
+
+      // index first
+      gsap.to(index, {
+        backgroundPosition: "0% 0%",
+        duration: 0.35,
+        ease: "power2.out"
+      });
+
+      // then title
+      gsap.to(title, {
+        backgroundPosition: "0% 0%",
+        duration: 0.45,
+        delay: 0.08,
+        ease: "power2.out"
+      });
+    });
+
+    item.addEventListener("mouseleave", () => {
+
+      if (item.classList.contains("active")) return;
+
+      gsap.to([title, index], {
+        backgroundPosition: "100% 0%",
+        duration: 0.4,
+        ease: "power2.out"
+      });
+    });
+
+  });
 
 });
 
