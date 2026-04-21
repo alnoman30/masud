@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (isActive) return;
 
-      // OPEN CURRENT
+      // OPEN CURRENT ITEM
       item.classList.add("active");
 
       content.style.height = "auto";
@@ -256,38 +256,6 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       }
-    });
-
-    // ---------------- HOVER (PREMIUM EFFECT) ----------------
-    item.addEventListener("mouseenter", () => {
-
-      if (item.classList.contains("active")) return;
-
-      // index first
-      gsap.to(index, {
-        backgroundPosition: "0% 0%",
-        duration: 0.35,
-        ease: "power2.out"
-      });
-
-      // then title
-      gsap.to(title, {
-        backgroundPosition: "0% 0%",
-        duration: 0.45,
-        delay: 0.08,
-        ease: "power2.out"
-      });
-    });
-
-    item.addEventListener("mouseleave", () => {
-
-      if (item.classList.contains("active")) return;
-
-      gsap.to([title, index], {
-        backgroundPosition: "100% 0%",
-        duration: 0.4,
-        ease: "power2.out"
-      });
     });
 
   });
@@ -446,3 +414,54 @@ gsap.to(".progress", {
       width: "100%", // Full width at the bottom of the page
       ease: "none"
     });
+
+
+
+// Portfolio page js
+
+// Project filtering
+const filterButtons = document.querySelectorAll('.filter-btn');
+const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+// Set the initial active class on the "All" button
+const allButton = document.querySelector('[data-filter="all"]');
+
+// Add event listeners to each filter button
+filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const filter = this.getAttribute('data-filter');
+        
+        // Remove 'active' and background gradient from all buttons
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active', 'text-white', 'bg-gradient-to-r', 'from-[#FF512F]', 'via-[#DD2476]', 'to-[#FF512F]');
+            btn.classList.add('bg-white', 'border-gray-200', 'text-gray-800'); // Default state (white bg, gray text)
+        });
+
+        // Add 'active' class and gradient background to the clicked button
+        this.classList.add('active', 'text-white', 'bg-gradient-to-r', 'from-[#FF512F]', 'via-[#DD2476]', 'to-[#FF512F]');
+        
+        filterPortfolio(filter);
+    });
+});
+
+function filterPortfolio(filter) {
+    // First, fade out all items with a smooth transition
+    gsap.to(portfolioItems, {
+        opacity: 0,
+        duration: 0.3,
+        stagger: 0.1,
+        onComplete: hideItems
+    });
+
+    // Wait until opacity fade-out is complete, then hide/show items
+    function hideItems() {
+        portfolioItems.forEach(item => {
+            if (filter === 'all' || item.classList.contains(filter)) {
+                gsap.set(item, { display: 'block', opacity: 0, visibility: 'visible' });
+                gsap.to(item, { opacity: 1, duration: 0.6, stagger: 0.1 });
+            } else {
+                gsap.set(item, { opacity: 0, display: 'none', visibility: 'hidden' });
+            }
+        });
+    }
+}

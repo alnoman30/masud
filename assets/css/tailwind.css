@@ -11,8 +11,10 @@
     --color-offwhite2: #CDCDCD;
     --color-light-orange: #FFF0EB;
     --color-gray: #E3E3E3;
+    --color-gray2: #6B7280;
     --color-white: #FFFFFF;
     --color-black: #000000;
+    --color-black2: #434343;
     --color-light-black: #525252;
 }
 
@@ -190,6 +192,15 @@ html.lenis body {
 .hero-bg-wrapper {
     /* Replace with your actual path */
     background-image: url('../image/hero-bg.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #05071a;
+    /* Fallback color */
+}
+.section-bg-wrapper {
+    /* Replace with your actual path */
+    background-image: url('../image/section-bg.svg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -505,4 +516,12 @@ background: linear-gradient(to top right,
 
 .phone {
     padding: 8px 0;
+}
+
+
+/* ============================Portfolio page css ================================ */
+
+.portfolio-item h3:hover {
+    
+  transition: color 0.3s ease-in-out, background 0.3s ease-in-out; /* Smooth text color and background change */
 }
