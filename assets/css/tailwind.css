@@ -212,16 +212,12 @@ html.lenis body {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-
     height: 40px;
     border-radius: 9999px;
     z-index: -1;
-
     background-image: linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%);
-
-
     transition: all 0.3s ease;
-    /* fallback if GSAP not loaded */
+  
 }
 
 /* Nav list */
@@ -237,9 +233,7 @@ html.lenis body {
 /* Links */
 .nav-list-desktop ul li a {
     display: inline-flex;
-    /* 🔥 better vertical alignment */
     align-items: center;
-    /* 🔥 center text */
     justify-content: center;
 
     color: var(--color-offwhite);
@@ -255,16 +249,11 @@ html.lenis body {
 
     position: relative;
     z-index: 1;
-    /* 🔥 keep text above pill */
 
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* Hover effect */
-.nav-list-desktop ul li a:hover {
 
-    transform: scale(1.05);
-}
 
 /* Active link text */
 .nav-list-desktop ul li a.active {
