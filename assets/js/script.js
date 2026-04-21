@@ -347,3 +347,96 @@ document.addEventListener('DOMContentLoaded', function () {
   }).mount(window.splide.Extensions);
 });
 
+// toold and technologies section
+ const counters = document.querySelectorAll(".counter");
+
+  counters.forEach(el => {
+    const target = +el.getAttribute("data-count");
+    const suffix = el.getAttribute("data-suffix") || "";
+
+    gsap.fromTo(el,
+      { innerText: 0 },
+      {
+        innerText: target,
+        duration: 2,
+        ease: "power1.out",
+        snap: { innerText: 1 },
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+        },
+        onUpdate: function() {
+          el.innerText = Math.ceil(el.innerText) + suffix;
+        }
+      }
+    );
+  });
+
+  //  FAQS Section
+const items = document.querySelectorAll(".faq-item");
+
+  items.forEach(item => {
+    const content = item.querySelector(".faq-content");
+    const chevron = item.querySelector(".chevron");
+
+    gsap.set(content, { height: 0 });
+
+    item.addEventListener("click", () => {
+      const isOpen = content.classList.contains("open");
+
+      // Close all
+      items.forEach(el => {
+        const c = el.querySelector(".faq-content");
+        const ch = el.querySelector(".chevron");
+
+        gsap.to(c, { height: 0, duration: 0.4, ease: "power2.inOut" });
+        gsap.to(ch, { rotate: 0, duration: 0.3 });
+
+        c.classList.remove("open");
+      });
+
+      // Open current
+      if (!isOpen) {
+        gsap.to(content, {
+          height: content.scrollHeight,
+          duration: 0.4,
+          ease: "power2.inOut"
+        });
+
+        gsap.to(chevron, { rotate: 180, duration: 0.3 });
+        content.classList.add("open");
+      }
+    });
+  });
+
+
+  // Testimonial splidejs 
+  document.addEventListener('DOMContentLoaded', function () {
+  const commonOptions = {
+    type: 'loop',
+    drag: 'free',
+    perPage: 3,
+    pauseOnHover: true,
+    arrows: false,
+    pagination: false,
+    gap: '1rem',
+  };
+
+  // Top Row moving Right
+  new Splide('#top-lane', {
+    ...commonOptions,
+    autoScroll: {
+      speed: 1, // Positive speed
+      pauseOnHover: true,
+    },
+  }).mount(window.splide.Extensions);
+
+  // Bottom Row moving Left
+  new Splide('#bottom-lane', {
+    ...commonOptions,
+    autoScroll: {
+      speed: -1, // Negative speed
+      pauseOnHover: true,
+    },
+  }).mount(window.splide.Extensions);
+});
