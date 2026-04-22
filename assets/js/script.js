@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "-=0.9"
     );
   }
+  
 
   if (document.querySelector(".hero-btn-wrap")) {
     tl.fromTo(".hero-btn-wrap",
@@ -273,22 +274,25 @@ document.addEventListener("DOMContentLoaded", () => {
 // ================= SPLIDE (FIXED) =================
 document.addEventListener('DOMContentLoaded', function () {
 
-  const el = document.querySelector('#card-slider');
+
+  // home page creative strategy slider
+const el = document.querySelector('#card-slider');
   if (!el || typeof Splide === "undefined") return;
 
   new Splide('#card-slider', {
     type: 'loop',
     perPage: 1.5,
-    gap: "30px",
+    gap: '30px',
     padding: 30,
     arrows: false,
     pagination: false,
     focus: 0,
     drag: 'free',
-    autoScroll: false,
-    loop: false,
-  }).mount(window.splide?.Extensions);
 
+    autoplay: true,
+    interval: 4000,
+    pauseOnHover: true,
+  }).mount();
 });
 
 
@@ -514,7 +518,7 @@ function filterPortfolio(filter) {
 
 
 
-// ================= PROCESS SECTION =================
+// =================METHODOLOGY PROCESS SECTION =================
 const mm = gsap.matchMedia();
 
 mm.add("(min-width: 768px)", () => {
@@ -532,7 +536,7 @@ mm.add("(min-width: 768px)", () => {
     scrollTrigger: {
       trigger: ".process-section",
       start: "top top",
-      end: "+=2000",
+      end: "+=900",
       pin: true,
       scrub: true,
     }
@@ -547,3 +551,34 @@ mm.add("(min-width: 768px)", () => {
   });
 
 });
+
+
+
+// 
+function initTextHoverAnimation(selector) {
+  const elements = document.querySelectorAll(selector);
+
+  elements.forEach((el) => {
+    const track = el.querySelector(".mask-track");
+    if (!track) return;
+
+    // prevent duplicate timelines
+    if (el._gsapTL) el._gsapTL.kill();
+
+    const tl = gsap.timeline({ paused: true });
+
+    tl.to(track, {
+      y: "-50%",
+      duration: 0.35,
+      ease: "power2.out"
+    });
+
+    el.addEventListener("mouseenter", () => tl.play());
+    el.addEventListener("mouseleave", () => tl.reverse());
+
+    el._gsapTL = tl;
+  });
+}
+
+// INIT (this is REQUIRED)
+initTextHoverAnimation(".mask-hover");

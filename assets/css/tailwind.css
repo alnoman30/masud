@@ -284,6 +284,7 @@ html.lenis body {
     align-items: center;
     gap: 8px;
     text-decoration: none;
+    transition: all linear .3s;
 }
 
 /* --- Mobile Pill (Visible only on Mobile via HTML class) --- */
@@ -540,4 +541,19 @@ html.lenis body {
 
     transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
     /* Smooth text color and background change */
+}
+
+
+
+
+/*  */
+.mask-wrap {
+  display: block;
+  height: 1.2em;
+  overflow: hidden;
+}
+
+.mask-track {
+  display: flex;
+  flex-direction: column;
 }
