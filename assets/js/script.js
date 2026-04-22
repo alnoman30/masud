@@ -75,27 +75,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // animated text fade to place
-const split = SplitText.create(".split-target", {
-  type: "chars",
-  absolute: true
-});
+function initSplitAnimations() {
+  document.querySelectorAll(".split-target").forEach((el) => {
+    
+    const split = SplitText.create(el, {
+      type: "chars",
+      absolute: true
+    });
 
-gsap.from(split.chars, {
-  x: () => gsap.utils.random(-200, 200),
-  y: () => gsap.utils.random(-200, 200),
-  opacity: 0,
-  rotation: () => gsap.utils.random(-90, 90),
+    gsap.from(split.chars, {
+      x: () => gsap.utils.random(-200, 200),
+      y: () => gsap.utils.random(-200, 200),
+      opacity: 0,
+      rotation: () => gsap.utils.random(-90, 90),
 
-  stagger: 0.05,
-  duration: 2.2,
-  ease: "power2.out",
+      stagger: 0.05,
+      duration: 2.2,
+      ease: "power2.out",
 
-  scrollTrigger: {
-    trigger: ".split-target",
-    start: "top 80%",   // when section hits 80% of viewport
-    toggleActions: "play none none none"
-  }
-});
+      scrollTrigger: {
+        trigger: el,
+        start: "top 80%",
+        toggleActions: "play none none none",
+        once: true // ensures it runs only once
+      }
+    });
+
+  });
+}
+
+initSplitAnimations();
 
 
 // navigation 
@@ -320,6 +329,20 @@ document.addEventListener('DOMContentLoaded', function () {
     );
   });
 
+  // tools grid
+  gsap.from(".tool-item", {
+    y: 40,
+    opacity: 0,
+    duration: 0.6,
+    stagger: 0.15,
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".tools-grid",
+        start: "top 85%",
+        toggleActions: "play none none none"
+    }
+});
+
   //  FAQS Section
 const items = document.querySelectorAll(".faq-item");
 
@@ -465,3 +488,34 @@ function filterPortfolio(filter) {
         });
     }
 }
+
+
+// Case study page methodology section
+// Cards animation (main)
+gsap.from(".process-card", {
+    y: 60,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: "power3.out",
+    scrollTrigger: {
+        trigger: ".process-grid",
+        start: "top 80%",
+        toggleActions: "play none none none"
+    }
+});
+
+// Numbers animation (slight delay for layering)
+gsap.from(".process-card .cliptext", {
+    y: 20,
+    opacity: 0,
+    duration: 0.5,
+    stagger: 0.2,
+    ease: "power2.out",
+    delay: 0.3, // 👈 this creates separation from card animation
+    scrollTrigger: {
+        trigger: ".process-grid",
+        start: "top 80%",
+        toggleActions: "play none none none"
+    }
+});
