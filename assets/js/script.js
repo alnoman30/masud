@@ -2,82 +2,93 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 
 
-  // lenis smooth scroll // ──================== Smooth Scroll (Lenis) ==================──
-    if (typeof Lenis !== "undefined") {
-        const lenis = new Lenis({
-            duration: 1.4,
-            easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            smoothWheel: true,
-            wheelMultiplier: 1.3,
-        });
+// ================= LENIS =================
+if (typeof Lenis !== "undefined") {
+  const lenis = new Lenis({
+    duration: 1.4,
+    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+    wheelMultiplier: 1.3,
+  });
 
-        if (typeof ScrollTrigger !== "undefined") {
-            lenis.on("scroll", ScrollTrigger.update);
-        }
+  if (typeof ScrollTrigger !== "undefined") {
+    lenis.on("scroll", ScrollTrigger.update);
+  }
 
-        gsap.ticker.add(time => lenis.raf(time * 1000));
-        gsap.ticker.lagSmoothing(0);
-    }
+  gsap.ticker.add(time => lenis.raf(time * 1000));
+  gsap.ticker.lagSmoothing(0);
+}
 
 
-    // Hero section floating cards animation
 
+// ================= HERO =================
 document.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelectorAll('.floating-card');
-    
-    // Create a master timeline
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    // 1. Text & Button Entrance
-    tl.fromTo(".hero-title", 
-        { y: 60, opacity: 0 }, 
-        { y: 0, opacity: 1, duration: 1.2 }
-    )
-    .fromTo(".hero-p", 
-        { y: 30, opacity: 0 }, 
-        { y: 0, opacity: 1, duration: 1 }, 
-        "-=0.9" 
-    )
-    .fromTo(".hero-btn-wrap", 
-        { scale: 0.8, opacity: 0 }, 
-        { scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.7)" }, 
-        "-=0.7"
-    )
-    // 2. Cards Entrance (Integrated here, removed from the top)
-    .fromTo(cards, 
-        { opacity: 0, y: 50 }, 
-        { 
-            opacity: 1, 
-            y: 0, 
-            stagger: 0.15, 
-            duration: 1,
-            // 3. Start the floating loop ONLY after the entrance finishes
-            onComplete: () => startFloatingLoop(cards)
-        }, 
-        "-=0.5"
+  const cards = document.querySelectorAll('.floating-card');
+  const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+  if (document.querySelector(".hero-title")) {
+    tl.fromTo(".hero-title",
+      { y: 80, opacity: 0, scale: 1.05, filter: "blur(10px)" },
+      { y: 0, opacity: 1, scale: 1, filter: "blur(0px)", duration: 1.4, ease: "power4.out" }
     );
+  }
 
-    // Function to handle the infinite float
-    function startFloatingLoop(elements) {
-        elements.forEach((card, i) => {
-            gsap.to(card, {
-                y: "-=15",
-                duration: 2 + (i * 0.4),
-                repeat: -1,
-                yoyo: true,
-                ease: "sine.inOut",
-                delay: i * 0.1 // Slight offset for more organic feel
-            });
-        });
-    }
+  if (document.querySelector(".hero-p")) {
+    tl.fromTo(".hero-p",
+      { y: 40, opacity: 0, filter: "blur(6px)" },
+      { y: 0, opacity: 1, filter: "blur(0px)", duration: 1.1, ease: "power3.out" },
+      "-=0.9"
+    );
+  }
+
+  if (document.querySelector(".hero-btn-wrap")) {
+    tl.fromTo(".hero-btn-wrap",
+      { scale: 0.8, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.7)" },
+      "-=0.7"
+    );
+  }
+
+  if (cards.length) {
+    tl.fromTo(cards,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.15,
+        duration: 1,
+        onComplete: () => startFloatingLoop(cards)
+      },
+      "-=0.5"
+    );
+  }
+
+  function startFloatingLoop(elements) {
+    elements.forEach((card, i) => {
+      gsap.to(card, {
+        y: "-=15",
+        duration: 2 + (i * 0.4),
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: i * 0.1
+      });
+    });
+  }
 });
 
 
 
-// animated text fade to place
+// ================= SPLIT TEXT =================
 function initSplitAnimations() {
+
+  if (typeof SplitText === "undefined") return;
+
   document.querySelectorAll(".split-target").forEach((el) => {
-    
+
+    if (!el) return;
+
     const split = SplitText.create(el, {
       type: "chars",
       absolute: true
@@ -88,16 +99,14 @@ function initSplitAnimations() {
       y: () => gsap.utils.random(-200, 200),
       opacity: 0,
       rotation: () => gsap.utils.random(-90, 90),
-
       stagger: 0.05,
       duration: 2.2,
       ease: "power2.out",
-
       scrollTrigger: {
         trigger: el,
         start: "top 80%",
         toggleActions: "play none none none",
-        once: true // ensures it runs only once
+        once: true
       }
     });
 
@@ -107,76 +116,62 @@ function initSplitAnimations() {
 initSplitAnimations();
 
 
-// navigation 
+
+// ================= MENU =================
+const menuOpen = document.getElementById("menuOpen");
+const menuClose = document.getElementById("menuClose");
 
 const menuTl = gsap.timeline({ paused: true, reversed: true });
 
 menuTl.to("#menuOverlay", {
-    duration: 0.6,
-    y: "0%",
-    ease: "power4.inOut"
+  duration: 0.6,
+  y: "0%",
+  ease: "power4.inOut"
 })
 .to(".overlay-list li", {
-    duration: 0.4,
-    opacity: 1,
-    y: 0,
-    stagger: 0.1,
-    ease: "back.out(1.7)"
+  duration: 0.4,
+  opacity: 1,
+  y: 0,
+  stagger: 0.1,
+  ease: "back.out(1.7)"
 }, "-=0.2");
 
-document.getElementById("menuOpen").onclick = () => menuTl.play();
-document.getElementById("menuClose").onclick = () => menuTl.reverse();
+menuOpen?.addEventListener("click", () => menuTl.play());
+menuClose?.addEventListener("click", () => menuTl.reverse());
 
 document.querySelectorAll(".overlay-list a").forEach(link => {
-    link.onclick = () => menuTl.reverse();
+  link.onclick = () => menuTl.reverse();
 });
 
 
-// ================= NAV PILL =================
 
+// ================= NAV =================
 document.querySelectorAll('.nav-list-desktop ul li a').forEach(link => {
-    const hoverTimeline = gsap.timeline({
-        paused: true,
-        reversed: true,
-    });
 
-    hoverTimeline.to(link, {
-        duration: 0.6,
-        backgroundImage: 'linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%)',
-        color: '#fff',
-        ease: 'power2.out'
-    }).to(link.querySelector("::after"), {
-        duration: 0.6,
-        opacity: 1,
-        transform: 'scale(1)',
-        ease: 'power2.out'
-    });
+  if (!link) return;
 
-    link.addEventListener('mouseenter', () => {
-        hoverTimeline.play();
-    });
+  const hoverTimeline = gsap.timeline({ paused: true });
 
-    link.addEventListener('mouseleave', () => {
-        hoverTimeline.reverse();
-    });
+  hoverTimeline.to(link, {
+    duration: 0.6,
+    backgroundImage: 'linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%)',
+    color: '#fff',
+    ease: 'power2.out'
+  });
 
-    link.addEventListener('click', () => {
-        document.querySelectorAll('.nav-list-desktop ul li a').forEach(item => item.classList.remove('active'));
-        link.classList.add('active');
-        gsap.to(link, {
-            duration: 0.6,
-            backgroundImage: 'linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%)',
-            color: '#fff',
-            ease: 'power3.out'
-        });
-    });
+  link.addEventListener('mouseenter', () => hoverTimeline.play());
+  link.addEventListener('mouseleave', () => hoverTimeline.reverse());
 });
 
-// Accordion service section
+
+
+// ================= ACCORDION =================
 document.addEventListener("DOMContentLoaded", () => {
 
   const items = document.querySelectorAll(".spec-item");
   const mainImg = document.getElementById("mainSpecImage");
+
+  if (!items.length) return;
 
   items.forEach(item => {
 
@@ -184,68 +179,45 @@ document.addEventListener("DOMContentLoaded", () => {
     const title = item.querySelector(".spec-title");
     const index = item.querySelector(".spec-index");
 
-    // INITIAL STATE
+    if (!content) return;
+
     content.style.height = "0px";
     content.style.opacity = "0";
 
-    // ---------------- CLICK ----------------
     item.addEventListener("click", () => {
 
       const isActive = item.classList.contains("active");
 
-      // CLOSE ALL
       items.forEach(i => {
         i.classList.remove("active");
 
         const c = i.querySelector(".spec-content");
+        if (!c) return;
 
         gsap.killTweensOf(c);
 
         gsap.to(c, {
           height: 0,
           opacity: 0,
-          duration: 0.4,
-          ease: "power2.inOut"
-        });
-
-        // RESET GRADIENT
-        const t = i.querySelector(".spec-title");
-        const ind = i.querySelector(".spec-index");
-
-        gsap.to([t, ind], {
-          backgroundPosition: "100% 0%",
-          duration: 0.3
+          duration: 0.4
         });
       });
 
       if (isActive) return;
 
-      // OPEN CURRENT ITEM
       item.classList.add("active");
 
       content.style.height = "auto";
       const fullHeight = content.scrollHeight;
       content.style.height = "0px";
 
-      gsap.killTweensOf(content);
-
       gsap.to(content, {
         height: fullHeight,
         opacity: 1,
         duration: 0.6,
-        ease: "power3.out",
-        onComplete: () => {
-          content.style.height = "auto";
-        }
+        onComplete: () => content.style.height = "auto"
       });
 
-      // SET ACTIVE GRADIENT
-      gsap.to([title, index], {
-        backgroundPosition: "0% 0%",
-        duration: 0.4
-      });
-
-      // IMAGE SWITCH
       const img = item.getAttribute("data-image");
 
       if (img && mainImg) {
@@ -255,16 +227,11 @@ document.addEventListener("DOMContentLoaded", () => {
           duration: 0.2,
           onComplete: () => {
             mainImg.src = img;
-
-            gsap.to(mainImg, {
-              opacity: 1,
-              scale: 1,
-              duration: 0.4,
-              ease: "power2.out"
-            });
+            gsap.to(mainImg, { opacity: 1, scale: 1 });
           }
         });
       }
+
     });
 
   });
@@ -272,8 +239,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// Creative strategy service section
+
+// ================= SPLIDE (FIXED) =================
 document.addEventListener('DOMContentLoaded', function () {
+
+  const el = document.querySelector('#card-slider');
+  if (!el || typeof Splide === "undefined") return;
+
   new Splide('#card-slider', {
     type: 'loop',
     perPage: 1.5,
@@ -281,241 +253,267 @@ document.addEventListener('DOMContentLoaded', function () {
     padding: 30,
     arrows: false,
     pagination: false,
-
-    // IMPORTANT FIX:
     focus: 0,
-    drag: 'free', // optional smooth feel
+    drag: 'free',
+    autoScroll: false,
+    loop: false,
+  }).mount(window.splide?.Extensions);
 
-    breakpoints: {
-      1024: {
-        perPage: 1.2,
-      },
-      640: {
-        perPage: 1,
-      },
-    },
-
-    // Disable autoScroll
-    autoScroll: false, 
-
-    // Disable looping (important)
-    loop: false, 
-
-  }).mount(window.splide.Extensions);
 });
 
-// toold and technologies section
- const counters = document.querySelectorAll(".counter");
 
-  counters.forEach(el => {
-    const target = +el.getAttribute("data-count");
-    const suffix = el.getAttribute("data-suffix") || "";
 
-    gsap.fromTo(el,
-      { innerText: 0 },
-      {
-        innerText: target,
-        duration: 2,
-        ease: "power1.out",
-        snap: { innerText: 1 },
-        scrollTrigger: {
-          trigger: el,
-          start: "top 80%",
-        },
-        onUpdate: function() {
-          el.innerText = Math.ceil(el.innerText) + suffix;
-        }
+// ================= COUNTERS =================
+document.querySelectorAll(".counter").forEach(el => {
+
+  if (!el) return;
+
+  const target = +el.getAttribute("data-count");
+  const suffix = el.getAttribute("data-suffix") || "";
+
+  gsap.fromTo(el,
+    { innerText: 0 },
+    {
+      innerText: target,
+      duration: 2,
+      snap: { innerText: 1 },
+      scrollTrigger: {
+        trigger: el,
+        start: "top 80%",
+      },
+      onUpdate: function () {
+        el.innerText = Math.ceil(el.innerText) + suffix;
       }
-    );
-  });
-
-  // tools grid
-  gsap.from(".tool-item", {
-    y: 40,
-    opacity: 0,
-    duration: 0.6,
-    stagger: 0.15,
-    ease: "power2.out",
-    scrollTrigger: {
-        trigger: ".tools-grid",
-        start: "top 85%",
-        toggleActions: "play none none none"
     }
+  );
 });
 
-  //  FAQS Section
-const items = document.querySelectorAll(".faq-item");
 
-  items.forEach(item => {
-    const content = item.querySelector(".faq-content");
-    const chevron = item.querySelector(".chevron");
 
-    gsap.set(content, { height: 0 });
+// ================= TOOLS =================
+if (document.querySelector(".tools-grid")) {
+  gsap.from(".tool-item", {
+    y: 50,
+    opacity: 0,
+    scale: 0.95,
+    filter: "blur(6px)",
+    duration: 0.8,
+    stagger: 0.12,
+    scrollTrigger: {
+      trigger: ".tools-grid",
+      start: "top 85%",
+    }
+  });
+}
 
-    item.addEventListener("click", () => {
-      const isOpen = content.classList.contains("open");
 
-      // Close all
-      items.forEach(el => {
-        const c = el.querySelector(".faq-content");
-        const ch = el.querySelector(".chevron");
 
-        gsap.to(c, { height: 0, duration: 0.4, ease: "power2.inOut" });
-        gsap.to(ch, { rotate: 0, duration: 0.3 });
+// ================= FAQ =================
+document.querySelectorAll(".faq-item").forEach(item => {
 
-        c.classList.remove("open");
+  const content = item.querySelector(".faq-content");
+  const inner = item.querySelector(".faq-inner");
+  const chevron = item.querySelector(".chevron");
+
+  if (!content || !inner) return;
+
+  gsap.set(content, { height: 0, overflow: "hidden" });
+  gsap.set(inner, { y: 15, opacity: 0 });
+
+  item.addEventListener("click", () => {
+
+    const isOpen = content.classList.contains("open");
+
+    document.querySelectorAll(".faq-item").forEach(el => {
+      const c = el.querySelector(".faq-content");
+      const i = el.querySelector(".faq-inner");
+      const ch = el.querySelector(".chevron");
+
+      if (!c || !i) return;
+
+      gsap.to(c, { height: 0 });
+      gsap.to(i, { y: 15, opacity: 0 });
+      gsap.to(ch, { rotate: 0 });
+
+      c.classList.remove("open");
+    });
+
+    if (!isOpen) {
+      gsap.to(content, {
+        height: content.scrollHeight
       });
 
-      // Open current
-      if (!isOpen) {
-        gsap.to(content, {
-          height: content.scrollHeight,
-          duration: 0.4,
-          ease: "power2.inOut"
-        });
+      gsap.to(inner, {
+        y: 0,
+        opacity: 1
+      });
 
-        gsap.to(chevron, { rotate: 180, duration: 0.3 });
-        content.classList.add("open");
-      }
-    });
+      gsap.to(chevron, { rotate: 180 });
+
+      content.classList.add("open");
+    }
+
   });
 
+});
 
-  // Testimonial splidejs 
-  document.addEventListener('DOMContentLoaded', function () {
+
+
+// ================= SPLIDE TESTIMONIAL =================
+document.addEventListener('DOMContentLoaded', function () {
+
   const commonOptions = {
     type: 'loop',
     drag: 'free',
     perPage: 3,
-    pauseOnHover: true,
     arrows: false,
     pagination: false,
-        breakpoints: {
-      
-      1024: {
-        perPage: 2, 
-      },
-      // Tablet (1024px to 768px)
-      768: {
-        perPage: 1,  
-      },
-    },
     gap: '1rem',
   };
 
-  // Top Row moving Right
-  new Splide('#top-lane', {
-    ...commonOptions,
-    autoScroll: {
-      speed: 1, // Positive speed
-      pauseOnHover: true,
-    },
-  }).mount(window.splide.Extensions);
+  const top = document.querySelector('#top-lane');
+  const bottom = document.querySelector('#bottom-lane');
 
-  // Bottom Row moving Left
-  new Splide('#bottom-lane', {
-    ...commonOptions,
-    autoScroll: {
-      speed: -1, // Negative speed
-      pauseOnHover: true,
-    },
-  }).mount(window.splide.Extensions);
+  if (top && window.Splide) {
+    new Splide('#top-lane', {
+      ...commonOptions,
+      autoScroll: { speed: 1 }
+    }).mount(window.splide?.Extensions);
+  }
+
+  if (bottom && window.Splide) {
+    new Splide('#bottom-lane', {
+      ...commonOptions,
+      autoScroll: { speed: -1 }
+    }).mount(window.splide?.Extensions);
+  }
+
 });
 
 
-// Progress bar
+
+// ================= PROGRESS =================
 gsap.to(".progress", {
-      scrollTrigger: {
-        trigger: "body",  // Use 'body' or the top-level container that holds all sections
-        start: "top top",
-        end: "bottom bottom",
-        scrub: true, // Smoothly scrubs the animation based on scroll
-        markers: false, // Hide markers
-        onEnter: () => gsap.to(".progress-bar", { opacity: 1, duration: 0.3 }), // Fade in when scroll starts
-        onLeaveBack: () => gsap.to(".progress-bar", { opacity: 0, duration: 0.3 }), // Fade out when scroll goes back to the top
-      },
-      width: "100%", // Full width at the bottom of the page
-      ease: "none"
-    });
+  scrollTrigger: {
+    trigger: "body",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true,
+  },
+  width: "100%",
+  ease: "none"
+});
 
 
 
-// Portfolio page js
-
-// Project filtering
+// ================= PORTFOLIO =================
 const filterButtons = document.querySelectorAll('.filter-btn');
 const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-// Set the initial active class on the "All" button
-const allButton = document.querySelector('[data-filter="all"]');
+if (filterButtons.length && portfolioItems.length) {
 
-// Add event listeners to each filter button
-filterButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        const filter = this.getAttribute('data-filter');
-        
-        // Remove 'active' and background gradient from all buttons
-        filterButtons.forEach(btn => {
-            btn.classList.remove('active', 'text-white', 'bg-gradient-to-r', 'from-[#FF512F]', 'via-[#DD2476]', 'to-[#FF512F]');
-            btn.classList.add('bg-white', 'border-gray-200', 'text-gray-800'); // Default state (white bg, gray text)
-        });
+  filterButtons.forEach(button => {
 
-        // Add 'active' class and gradient background to the clicked button
-        this.classList.add('active', 'text-white', 'bg-gradient-to-r', 'from-[#FF512F]', 'via-[#DD2476]', 'to-[#FF512F]');
-        
-        filterPortfolio(filter);
+    button.addEventListener('click', function () {
+
+      const filter = this.getAttribute('data-filter');
+
+      // Remove active styles from all buttons
+      filterButtons.forEach(btn => {
+        btn.classList.remove(
+          'active',
+          'text-white',
+          'bg-gradient-to-r',
+          'from-[#FF512F]',
+          'via-[#DD2476]',
+          'to-[#FF512F]'
+        );
+
+        btn.classList.add('bg-white', 'border-gray-200', 'text-gray-800');
+      });
+
+      // Add active styles to clicked button
+      this.classList.add(
+        'active',
+        'text-white',
+        'bg-gradient-to-r',
+        'from-[#FF512F]',
+        'via-[#DD2476]',
+        'to-[#FF512F]'
+      );
+
+      this.classList.remove('bg-white', 'border-gray-200', 'text-gray-800');
+
+      filterPortfolio(filter);
     });
-});
-
-function filterPortfolio(filter) {
-    // First, fade out all items with a smooth transition
-    gsap.to(portfolioItems, {
-        opacity: 0,
-        duration: 0.3,
-        stagger: 0.1,
-        onComplete: hideItems
-    });
-
-    // Wait until opacity fade-out is complete, then hide/show items
-    function hideItems() {
-        portfolioItems.forEach(item => {
-            if (filter === 'all' || item.classList.contains(filter)) {
-                gsap.set(item, { display: 'block', opacity: 0, visibility: 'visible' });
-                gsap.to(item, { opacity: 1, duration: 0.6, stagger: 0.1 });
-            } else {
-                gsap.set(item, { opacity: 0, display: 'none', visibility: 'hidden' });
-            }
-        });
-    }
+  });
 }
 
 
-// Case study page methodology section
-// Cards animation (main)
-gsap.from(".process-card", {
-    y: 60,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: "power3.out",
-    scrollTrigger: {
-        trigger: ".process-grid",
-        start: "top 80%",
-        toggleActions: "play none none none"
-    }
-});
+// ================= FILTER FUNCTION =================
+function filterPortfolio(filter) {
 
-// Numbers animation (slight delay for layering)
-gsap.from(".process-card .cliptext", {
-    y: 20,
+  // fade out first
+  gsap.to(portfolioItems, {
     opacity: 0,
-    duration: 0.5,
-    stagger: 0.2,
-    ease: "power2.out",
-    delay: 0.3, // 👈 this creates separation from card animation
-    scrollTrigger: {
-        trigger: ".process-grid",
-        start: "top 80%",
-        toggleActions: "play none none none"
+    duration: 0.25,
+    stagger: 0.05,
+    onComplete: () => {
+
+      portfolioItems.forEach(item => {
+
+        const match = filter === 'all' || item.classList.contains(filter);
+
+        if (match) {
+          gsap.set(item, { display: 'block' });
+
+          gsap.fromTo(item,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.4 }
+          );
+
+        } else {
+          gsap.set(item, { display: 'none' });
+        }
+
+      });
+
     }
+  });
+}
+
+
+
+// ================= PROCESS SECTION =================
+const mm = gsap.matchMedia();
+
+mm.add("(min-width: 768px)", () => {
+
+  const cards = gsap.utils.toArray(".process-card");
+
+  if (!cards.length) return;
+
+  gsap.set(cards, {
+    opacity: 0,
+    y: 80
+  });
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".process-section",
+      start: "top top",
+      end: "+=2000",
+      pin: true,
+      scrub: true,
+    }
+  });
+
+  cards.forEach((card, i) => {
+    tl.to(card, {
+      opacity: 1,
+      y: 0,
+      duration: 1
+    }, i * 0.8);
+  });
+
 });

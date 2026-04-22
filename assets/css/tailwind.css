@@ -460,6 +460,11 @@ html.lenis body {
     position: relative;
 }
 
+/* faq */
+.faq-inner {
+  will-change: transform, opacity, filter;
+}
+
 
 /* tools and technologies */
 .tools-text-bg {
