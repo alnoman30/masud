@@ -176,18 +176,20 @@ document.addEventListener("DOMContentLoaded", () => {
   items.forEach(item => {
 
     const content = item.querySelector(".spec-content");
-    const title = item.querySelector(".spec-title");
-    const index = item.querySelector(".spec-index");
 
     if (!content) return;
 
-    content.style.height = "0px";
-    content.style.opacity = "0";
+    gsap.set(content, {
+      height: 0,
+      opacity: 0,
+      filter: "blur(10px)"
+    });
 
     item.addEventListener("click", () => {
 
       const isActive = item.classList.contains("active");
 
+      // CLOSE ALL
       items.forEach(i => {
         i.classList.remove("active");
 
@@ -199,7 +201,9 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.to(c, {
           height: 0,
           opacity: 0,
-          duration: 0.4
+          filter: "blur(10px)",
+          duration: 0.45,
+          ease: "power3.inOut"
         });
       });
 
@@ -207,27 +211,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
       item.classList.add("active");
 
-      content.style.height = "auto";
       const fullHeight = content.scrollHeight;
-      content.style.height = "0px";
 
-      gsap.to(content, {
-        height: fullHeight,
-        opacity: 1,
-        duration: 0.6,
-        onComplete: () => content.style.height = "auto"
-      });
+      gsap.fromTo(content,
+        {
+          height: 0,
+          opacity: 0,
+          filter: "blur(12px)"
+        },
+        {
+          height: fullHeight,
+          opacity: 1,
+          filter: "blur(0px)",
+          duration: 0.6,
+          ease: "power3.out",
+          onComplete: () => {
+            content.style.height = "auto";
+          }
+        }
+      );
 
+      // IMAGE TRANSITION (with blur motion)
       const img = item.getAttribute("data-image");
 
       if (img && mainImg) {
         gsap.to(mainImg, {
           opacity: 0,
-          scale: 0.95,
-          duration: 0.2,
+          scale: 0.97,
+          filter: "blur(8px)",
+          duration: 0.25,
+          ease: "power2.in",
           onComplete: () => {
             mainImg.src = img;
-            gsap.to(mainImg, { opacity: 1, scale: 1 });
+
+            gsap.fromTo(mainImg,
+              {
+                opacity: 0,
+                scale: 1.03,
+                filter: "blur(10px)"
+              },
+              {
+                opacity: 1,
+                scale: 1,
+                filter: "blur(0px)",
+                duration: 0.5,
+                ease: "power3.out"
+              }
+            );
           }
         });
       }
