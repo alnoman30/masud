@@ -98,40 +98,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // ================= SPLIT TEXT =================
-function initSplitAnimations() {
 
-  if (typeof SplitText === "undefined") return;
+document.querySelectorAll(".split-text").forEach((el) => {
+  // avoid running twice
+  if (el.dataset.splitDone) return;
+  el.dataset.splitDone = "true";
 
-  document.querySelectorAll(".split-target").forEach((el) => {
+  const target = el.querySelector("span") || el;
 
-    if (!el) return;
-
-    const split = SplitText.create(el, {
-      type: "chars",
-      absolute: true
-    });
-
-    gsap.from(split.chars, {
-      x: () => gsap.utils.random(-200, 200),
-      y: () => gsap.utils.random(-200, 200),
-      opacity: 0,
-      rotation: () => gsap.utils.random(-90, 90),
-      stagger: 0.05,
-      duration: 2.2,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: el,
-        start: "top 80%",
-        toggleActions: "play none none none",
-        once: true
-      }
-    });
-
+  const split = new SplitText(target, {
+    type: "lines,chars",
+    linesClass: "line",
+    charsClass: "char"
   });
-}
 
-initSplitAnimations();
+  // wrap lines safely (prevents layout breaking)
+  split.lines.forEach((line) => {
+    const wrapper = document.createElement("div");
+    wrapper.style.overflow = "hidden";
 
+    line.parentNode.insertBefore(wrapper, line);
+    wrapper.appendChild(line);
+  });
+
+  // animation (same for all)
+  gsap.from(split.chars, {
+    y: 60,
+    opacity: 0,
+    stagger: 0.03,
+    duration: 0.8,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: el,
+      start: "top 85%",
+      toggleActions: "play none none reverse"
+    }
+  });
+});
 
 
 // ================= MENU =================
@@ -570,31 +573,77 @@ mm.add("(min-width: 768px)", () => {
 
 
 
-// 
-function initTextHoverAnimation(selector) {
-  const elements = document.querySelectorAll(selector);
+// button hover animation
 
-  elements.forEach((el) => {
-    const track = el.querySelector(".mask-track");
-    if (!track) return;
 
-    // prevent duplicate timelines
-    if (el._gsapTL) el._gsapTL.kill();
 
-    const tl = gsap.timeline({ paused: true });
 
-    tl.to(track, {
-      y: "-50%",
-      duration: 0.35,
-      ease: "power2.out"
+// button animation
+
+
+class ButtonHover {
+  constructor(el) {
+    this.el = el;
+    this.flair = el.querySelector(".btn-flair");
+
+    if (!this.flair) return;
+
+    this.init();
+  }
+
+  getXY(e) {
+    const rect = this.el.getBoundingClientRect();
+
+    return {
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    };
+  }
+
+  init() {
+    this.el.addEventListener("mouseenter", (e) => {
+      const { x, y } = this.getXY(e);
+
+      gsap.set(this.flair, { x, y });
+
+      gsap.to(this.flair, {
+        scale: 1,
+        duration: 0.4,
+        ease: "power2.out"
+      });
     });
 
-    el.addEventListener("mouseenter", () => tl.play());
-    el.addEventListener("mouseleave", () => tl.reverse());
+    this.el.addEventListener("mousemove", (e) => {
+      const { x, y } = this.getXY(e);
 
-    el._gsapTL = tl;
+      gsap.to(this.flair, {
+        x,
+        y,
+        duration: 0.25,
+        ease: "power2.out"
+      });
+    });
+
+    this.el.addEventListener("mouseleave", (e) => {
+      const { x, y } = this.getXY(e);
+
+      gsap.to(this.flair, {
+        x,
+        y,
+        scale: 0,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    });
+  }
+}
+
+/* reusable DOM initializer */
+function initButtonHover(selector = "[data-button]") {
+  document.querySelectorAll(selector).forEach(el => {
+    new ButtonHover(el);
   });
 }
 
-// INIT (this is REQUIRED)
-initTextHoverAnimation(".mask-hover");
+/* run globally */
+initButtonHover();

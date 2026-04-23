@@ -547,13 +547,44 @@ html.lenis body {
 
 
 /*  */
-.mask-wrap {
-  display: block;
-  height: 1.2em;
+
+
+/* text stays above flair */
+.btn-text, svg {
+  position: relative;
+  z-index: 2;
+}
+
+/* hover light blob */
+.btn-flair {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  z-index: 0;
+}
+.btn-text,
+.gsap-btn svg {
+  position: relative;
+  z-index: 10;
+}
+
+
+/*  */
+.split-text {
   overflow: hidden;
 }
 
-.mask-track {
-  display: flex;
-  flex-direction: column;
+.split-text span {
+  display: inline-block;
+}
+
+.char {
+  display: inline-block;
+  line-height: inherit;
 }

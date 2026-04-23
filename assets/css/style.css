@@ -1570,11 +1570,6 @@
       padding-inline: calc(var(--spacing) * 8);
     }
   }
-  .sm\:px-8\.5 {
-    @media (width >= 40rem) {
-      padding-inline: calc(var(--spacing) * 8.5);
-    }
-  }
   .sm\:px-9 {
     @media (width >= 40rem) {
       padding-inline: calc(var(--spacing) * 9);
@@ -2674,14 +2669,35 @@ html.lenis, html.lenis body {
 .portfolio-item h3:hover {
   transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
 }
-.mask-wrap {
-  display: block;
-  height: 1.2em;
+.btn-text, svg {
+  position: relative;
+  z-index: 2;
+}
+.btn-flair {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  z-index: 0;
+}
+.btn-text, .gsap-btn svg {
+  position: relative;
+  z-index: 10;
+}
+.split-text {
   overflow: hidden;
 }
-.mask-track {
-  display: flex;
-  flex-direction: column;
+.split-text span {
+  display: inline-block;
+}
+.char {
+  display: inline-block;
+  line-height: inherit;
 }
 @property --tw-translate-x {
   syntax: "*";

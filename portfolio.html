@@ -61,16 +61,12 @@
                     </div>
 
                     <!-- Download CV Button -->
-                    <a href="#"
-                        class="mask-hover desktop-cv-btn flex items-center gap-3 transition-all overflow-hidden">
+                    <a href="#" data-button
+                        class="desktop-cv-btn flex items-center gap-3 transition-all overflow-hidden relative">
 
-                        <!-- Mask Text -->
-                        <span class="mask-wrap">
-                            <span class="mask-track">
-                                <span>Download CV</span>
-                                <span>Download CV</span>
-                            </span>
-                        </span>
+                        <span class="btn-flair"></span>
+
+                        <span>Download CV</span>
 
                         <!-- Arrow Icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="18" viewBox="0 0 26 18" fill="none">
@@ -441,42 +437,51 @@
                     <!-- left content -->
                     <div class="left-content">
                         <h3
-                            class="text-white boldonse text-4xl md:text-[56px] font-normal leading-[160%] max-w-183.25 uppercase mb-7.5 split-target">
+                            class="split-text text-white boldonse text-4xl md:text-[56px] font-normal leading-[160%] max-w-183.25 uppercase mb-7.5">
                             <span>Performance Creatives</span></h3>
-                        <p class="text-white text-lg sm:text-[26px] font-normal leading-[150%] max-w-183.25 mb-10 md:mb-20">Let's
+                        <p
+                            class="text-white text-lg sm:text-[26px] font-normal leading-[150%] max-w-183.25 mb-10 md:mb-20">
+                            Let's
                             create
                             high-performing ad creatives that drive real results for your business. From concept to
                             conversion, I'll help you stand out in the digital landscape.</p>
                         <!-- buttons -->
-                        <a href="#" class="">
-                            <div
-                                class=" gap-1 items-center px-6 py-4 sm:px-8.5 sm:py-6 bg-[radial-gradient(50%_50%_at_50%_50%,#EE3900_0%,#F7450D_100%)] 
-                                        shadow-[inset_0_0_10px_rgba(255,255,255,0.25),inset_0_0_20px_rgba(255,255,255,0.50)] inline-flex rounded-full hover:scale-105 transition duration-300">
-                                <span class="boldonse text-white text-[14px] sm:text-lg font-normal leading-6">Start Your
-                                    Projects</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 34 24"
-                                    fill="none">
-                                    <path d="M29.5 12L4.5 12" stroke="white" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path d="M22 21C22 21 31 14.3716 31 12C31 9.6282 22 3 22 3" stroke="white"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
+                        <a href="#" data-button class="group relative overflow-hidden inline-flex items-center gap-2 px-6 py-4 sm:px-8 sm:py-6 
+   bg-[radial-gradient(50%_50%_at_50%_50%,#EE3900_0%,#F7450D_100%)] 
+   shadow-[inset_0_0_10px_rgba(255,255,255,0.25),inset_0_0_20px_rgba(255,255,255,0.50)] 
+   rounded-full transition duration-300">
+
+                            <span class="btn-flair"></span>
+
+                            <span
+                                class="relative z-10 boldonse text-white text-[14px] sm:text-lg font-normal leading-6">
+                                Start Your Projects
+                            </span>
+
+                            <svg class="relative z-10" xmlns="http://www.w3.org/2000/svg" width="34" height="24"
+                                viewBox="0 0 34 24" fill="none">
+                                <path d="M29.5 12L4.5 12" stroke="white" stroke-width="2" stroke-linecap="round" />
+                                <path d="M22 21C22 21 31 14.3716 31 12C31 9.6282 22 3 22 3" stroke="white"
+                                    stroke-width="2" />
+                            </svg>
+
                         </a>
                     </div>
                     <!-- right content -->
                     <div class="right-content flex flex-col gap-10 text-center mt-10">
                         <div class=>
-                            <div><h2
-                                class="boldonse text-4xl md:text-[56px] font-normal leading-[140%] font-black bg-gradient-to-r from-[#F7450D] to-[#b83b5e] bg-clip-text text-transparent ">
-                                24H
-                            </h2>
-                            <p class="text-[#E5E5E5] text-2xl font-normal leading-[150%] mt-2 ">
-                                Average Response Time
-                            </p></div>
+                            <div>
+                                <h2
+                                    class="boldonse text-4xl md:text-[56px] font-normal leading-[140%] font-black bg-gradient-to-r from-[#F7450D] to-[#b83b5e] bg-clip-text text-transparent ">
+                                    24H
+                                </h2>
+                                <p class="text-[#E5E5E5] text-2xl font-normal leading-[150%] mt-2 ">
+                                    Average Response Time
+                                </p>
+                            </div>
                         </div>
 
-                        <div >
+                        <div>
                             <h2
                                 class="boldonse text-4xl md:text-[56px] font-normal leading-[140%] font-black bg-gradient-to-r from-[#F7450D] to-[#b83b5e] bg-clip-text text-transparent ">
                                 100%
@@ -486,7 +491,7 @@
                             </p>
                         </div>
 
-                        <div >
+                        <div>
                             <h2
                                 class="boldonse text-4xl md:text-[56px] font-normal leading-[140%] font-black bg-gradient-to-r from-[#F7450D] to-[#b83b5e] bg-clip-text text-transparent ">
                                 5-7
@@ -990,20 +995,21 @@
                 </p>
 
                 <div class="mt-10 flex flex-wrap justify-center gap-4">
-                    <a href="#" class="mask-hover group flex items-center gap-2 rounded-full 
+                    <a href="#" data-button class="group relative overflow-hidden flex items-center gap-2 rounded-full 
    bg-[radial-gradient(50%_50%_at_50%_50%,#EE3900_0%,#F7450D_100%)] 
    shadow-[inset_0_0_10px_rgba(255,255,255,0.25),inset_0_0_20px_rgba(255,255,255,0.50)] 
    text-white boldonse text-[12px] md:text-lg leading-6 px-6 md:px-8 py-4 md:py-6 
    transition-all">
 
-                        <span class="mask-wrap">
-                            <span class="mask-track">
-                                <span>Start Your Projects</span>
-                                <span>Start Your Projects</span>
-                            </span>
-                        </span>
+                        <!-- glow -->
+                        <span class="btn-flair"></span>
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 34 24" fill="none">
+                        <!-- text -->
+                        <span class="relative z-10">Start Your Projects</span>
+
+                        <!-- icon -->
+                        <svg class="relative z-10" xmlns="http://www.w3.org/2000/svg" width="34" height="24"
+                            viewBox="0 0 34 24" fill="none">
                             <path d="M29.5 12L4.5 12" stroke="white" stroke-width="2" stroke-linecap="round" />
                             <path d="M22 21C22 21 31 14.3716 31 12C31 9.6282 22 3 22 3" stroke="white"
                                 stroke-width="2" />
@@ -1011,20 +1017,22 @@
 
                     </a>
 
-                    <a href="#" class="mask-hover group flex items-center gap-2 rounded-full 
+                    <!-- Button 2 -->
+                    <a href="#" data-button class="group relative overflow-hidden flex items-center gap-2 rounded-full 
    bg-[radial-gradient(50%_50%_at_50%_50%,_#FFF_0%,_#FFCDBD_100%)] 
    shadow-[inset_0_0_10px_0_rgba(255,255,255,0.25),_inset_0_0_20px_0_rgba(255,255,255,0.5)]  
    text-primary boldonse text-[12px] md:text-lg leading-6 px-6 md:px-8 py-4 md:py-6 
    transition-all">
 
-                        <span class="mask-wrap">
-                            <span class="mask-track">
-                                <span>View Portfolio</span>
-                                <span>View Portfolio</span>
-                            </span>
-                        </span>
+                        <!-- FLARE (IMPORTANT) -->
+                        <span class="btn-flair"></span>
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 34 24" fill="none">
+                        <!-- TEXT -->
+                        <span class="relative z-10">View Portfolio</span>
+
+                        <!-- ICON -->
+                        <svg class="relative z-10" xmlns="http://www.w3.org/2000/svg" width="34" height="24"
+                            viewBox="0 0 34 24" fill="none">
                             <path d="M29.5 12L4.5 12" stroke="#F23F06" stroke-width="2" stroke-linecap="round" />
                             <path d="M22 21C22 21 31 14.3716 31 12C31 9.6282 22 3 22 3" stroke="#F23F06"
                                 stroke-width="2" />

@@ -61,16 +61,12 @@
                     </div>
 
                     <!-- Download CV Button -->
-                    <a href="#"
-                        class="mask-hover desktop-cv-btn flex items-center gap-3 transition-all overflow-hidden">
+                    <a href="#" data-button
+                        class="desktop-cv-btn flex items-center gap-3 transition-all overflow-hidden relative">
 
-                        <!-- Mask Text -->
-                        <span class="mask-wrap">
-                            <span class="mask-track">
-                                <span>Download CV</span>
-                                <span>Download CV</span>
-                            </span>
-                        </span>
+                        <span class="btn-flair"></span>
+
+                        <span>Download CV</span>
 
                         <!-- Arrow Icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="18" viewBox="0 0 26 18" fill="none">
@@ -153,23 +149,23 @@
                     </p>
 
                     <div class="hero-btn-wrap opacity-0 w-full lg:w-auto flex justify-center lg:justify-start">
-                        <a href="#" class="mask-hover btn w-full lg:w-auto flex items-center justify-center lg:justify-start gap-4 
-   text-[14px] md:text-lg text-white font-normal leading-6 px-8 py-6 boldonse 
-   bg-[radial-gradient(50%_50%_at_50%_50%,#EE3900_0%,#F7450D_100%)] 
-   shadow-[inset_0_0_10px_rgba(255,255,255,0.25),inset_0_0_20px_rgba(255,255,255,0.50)] 
-   rounded-full overflow-hidden">
+                        <a href="#" data-button class="gsap-btn w-full lg:w-auto flex items-center justify-center lg:justify-start gap-4 
+  text-[14px] md:text-lg font-normal leading-6 px-8 py-6 boldonse 
+  bg-[radial-gradient(50%_50%_at_50%_50%,#EE3900_0%,#F7450D_100%)] 
+  shadow-[inset_0_0_10px_rgba(255,255,255,0.25),inset_0_0_20px_rgba(255,255,255,0.50)] 
+  rounded-full overflow-hidden relative">
 
-                            <!-- Mask Text -->
-                            <span class="mask-wrap">
-                                <span class="mask-track">
-                                    <span>See My Work</span>
-                                    <span>See My Work</span>
-                                </span>
+                            <!-- hover flair -->
+                            <span class="btn-flair"></span>
+
+                            <!-- text -->
+                            <span class="btn-text relative z-10 transition-colors duration-300 text-white">
+                                See My Work
                             </span>
 
-                            <!-- Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 34 24"
-                                fill="none">
+                            <!-- icon -->
+                            <svg class="relative z-10" xmlns="http://www.w3.org/2000/svg" width="34" height="24"
+                                viewBox="0 0 34 24" fill="none">
                                 <path d="M29.5 12L4.5 12" stroke="white" stroke-width="2" stroke-linecap="round" />
                                 <path d="M22 21C22 21 31 14.3716 31 12C31 9.6282 22 3 22 3" stroke="white"
                                     stroke-width="2" />
@@ -675,19 +671,16 @@
                         Portfolio Highlights
                     </h2>
 
-                    <a href="#" class="mask-hover boldonse text-sm sm:text-base md:text-lg 
-    bg-[radial-gradient(50%_50%_at_50%_50%,#EE3900_0%,#F7450D_100%)] 
-    shadow-[inset_0_0_10px_rgba(255,255,255,0.25),inset_0_0_20px_rgba(255,255,255,0.50)] 
-    rounded-full font-bold flex items-center justify-center gap-3 md:gap-6 
-    text-white px-5 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 
-    w-full sm:w-auto overflow-hidden">
+                    <a href="#" data-button class="boldonse text-sm sm:text-base md:text-lg 
+   bg-[radial-gradient(50%_50%_at_50%_50%,#EE3900_0%,#F7450D_100%)] 
+   shadow-[inset_0_0_10px_rgba(255,255,255,0.25),inset_0_0_20px_rgba(255,255,255,0.50)] 
+   rounded-full font-bold flex items-center justify-center gap-3 md:gap-6 
+   text-white px-5 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 
+   w-full sm:w-auto overflow-hidden relative">
 
-                        <span class="mask-wrap">
-                            <span class="mask-track">
-                                <span>View Full Portfolio</span>
-                                <span>View Full Portfolio</span>
-                            </span>
-                        </span>
+                        <span class="btn-flair"></span>
+
+                        <span>View Full Portfolio</span>
 
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-4 md:w-8 md:h-6" viewBox="0 0 34 24"
                             fill="none">
@@ -804,7 +797,7 @@
             <!-- LEFT CONTENT -->
             <div class="lg:col-span-5 pt-10">
                 <h2
-                    class=" boldonse text-black text-[32px] md:text-[56px] font-normal leading-[140%] md:max-w-157.25 uppercase mb-8 split-target">
+                    class="split-text boldonse text-black text-[32px] md:text-[56px] font-normal leading-[140%] md:max-w-157.25 uppercase mb-8 ">
                     <span class="">Creative Strategy Services</span>
                 </h2>
                 <p class="text-black text-lg md:text-xl font-normal leading-[150%] max-w-122.25">
@@ -1904,7 +1897,7 @@
             <!-- LEFT CONTENT -->
             <div class="md:col-span-5 faq-left">
                 <h2
-                    class="boldonse text-black text-[28px] sm:text-[36px] md:text-[56px] font-normal leading-[140%] md:max-w-118.25 uppercase mb-6 md:mb-8 split-target">
+                    class="split-text boldonse text-black text-[28px] sm:text-[36px] md:text-[56px] font-normal leading-[140%] md:max-w-118.25 uppercase mb-6 md:mb-8 ">
                     <span class="">Frequently Asked Questions</span>
                 </h2>
                 <p class="text-black text-base sm:text-lg md:text-xl font-normal leading-[150%] md:max-w-118.25">
@@ -2064,20 +2057,21 @@
                 </p>
 
                 <div class="mt-10 flex flex-wrap justify-center gap-4">
-                    <a href="#" class="mask-hover group flex items-center gap-2 rounded-full 
+                    <a href="#" data-button class="group relative overflow-hidden flex items-center gap-2 rounded-full 
    bg-[radial-gradient(50%_50%_at_50%_50%,#EE3900_0%,#F7450D_100%)] 
    shadow-[inset_0_0_10px_rgba(255,255,255,0.25),inset_0_0_20px_rgba(255,255,255,0.50)] 
    text-white boldonse text-[12px] md:text-lg leading-6 px-6 md:px-8 py-4 md:py-6 
    transition-all">
 
-                        <span class="mask-wrap">
-                            <span class="mask-track">
-                                <span>Start Your Projects</span>
-                                <span>Start Your Projects</span>
-                            </span>
-                        </span>
+                        <!-- glow -->
+                        <span class="btn-flair"></span>
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 34 24" fill="none">
+                        <!-- text -->
+                        <span class="relative z-10">Start Your Projects</span>
+
+                        <!-- icon -->
+                        <svg class="relative z-10" xmlns="http://www.w3.org/2000/svg" width="34" height="24"
+                            viewBox="0 0 34 24" fill="none">
                             <path d="M29.5 12L4.5 12" stroke="white" stroke-width="2" stroke-linecap="round" />
                             <path d="M22 21C22 21 31 14.3716 31 12C31 9.6282 22 3 22 3" stroke="white"
                                 stroke-width="2" />
@@ -2085,20 +2079,22 @@
 
                     </a>
 
-                    <a href="#" class="mask-hover group flex items-center gap-2 rounded-full 
+                    <!-- Button 2 -->
+                    <a href="#" data-button class="group relative overflow-hidden flex items-center gap-2 rounded-full 
    bg-[radial-gradient(50%_50%_at_50%_50%,_#FFF_0%,_#FFCDBD_100%)] 
    shadow-[inset_0_0_10px_0_rgba(255,255,255,0.25),_inset_0_0_20px_0_rgba(255,255,255,0.5)]  
    text-primary boldonse text-[12px] md:text-lg leading-6 px-6 md:px-8 py-4 md:py-6 
    transition-all">
 
-                        <span class="mask-wrap">
-                            <span class="mask-track">
-                                <span>View Portfolio</span>
-                                <span>View Portfolio</span>
-                            </span>
-                        </span>
+                        <!-- FLARE (IMPORTANT) -->
+                        <span class="btn-flair"></span>
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 34 24" fill="none">
+                        <!-- TEXT -->
+                        <span class="relative z-10">View Portfolio</span>
+
+                        <!-- ICON -->
+                        <svg class="relative z-10" xmlns="http://www.w3.org/2000/svg" width="34" height="24"
+                            viewBox="0 0 34 24" fill="none">
                             <path d="M29.5 12L4.5 12" stroke="#F23F06" stroke-width="2" stroke-linecap="round" />
                             <path d="M22 21C22 21 31 14.3716 31 12C31 9.6282 22 3 22 3" stroke="#F23F06"
                                 stroke-width="2" />

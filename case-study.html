@@ -61,16 +61,12 @@
                     </div>
 
                     <!-- Download CV Button -->
-                    <a href="#"
-                        class="mask-hover desktop-cv-btn flex items-center gap-3 transition-all overflow-hidden">
+                    <a href="#" data-button
+                        class="desktop-cv-btn flex items-center gap-3 transition-all overflow-hidden relative">
 
-                        <!-- Mask Text -->
-                        <span class="mask-wrap">
-                            <span class="mask-track">
-                                <span>Download CV</span>
-                                <span>Download CV</span>
-                            </span>
-                        </span>
+                        <span class="btn-flair"></span>
+
+                        <span>Download CV</span>
 
                         <!-- Arrow Icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="18" viewBox="0 0 26 18" fill="none">
@@ -1365,20 +1361,21 @@
                 </p>
 
                 <div class="mt-10 flex flex-wrap justify-center gap-4">
-                    <a href="#" class="mask-hover group flex items-center gap-2 rounded-full 
+                    <a href="#" data-button class="group relative overflow-hidden flex items-center gap-2 rounded-full 
    bg-[radial-gradient(50%_50%_at_50%_50%,#EE3900_0%,#F7450D_100%)] 
    shadow-[inset_0_0_10px_rgba(255,255,255,0.25),inset_0_0_20px_rgba(255,255,255,0.50)] 
    text-white boldonse text-[12px] md:text-lg leading-6 px-6 md:px-8 py-4 md:py-6 
    transition-all">
 
-                        <span class="mask-wrap">
-                            <span class="mask-track">
-                                <span>Start Your Projects</span>
-                                <span>Start Your Projects</span>
-                            </span>
-                        </span>
+                        <!-- glow -->
+                        <span class="btn-flair"></span>
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 34 24" fill="none">
+                        <!-- text -->
+                        <span class="relative z-10">Start Your Projects</span>
+
+                        <!-- icon -->
+                        <svg class="relative z-10" xmlns="http://www.w3.org/2000/svg" width="34" height="24"
+                            viewBox="0 0 34 24" fill="none">
                             <path d="M29.5 12L4.5 12" stroke="white" stroke-width="2" stroke-linecap="round" />
                             <path d="M22 21C22 21 31 14.3716 31 12C31 9.6282 22 3 22 3" stroke="white"
                                 stroke-width="2" />
@@ -1386,20 +1383,22 @@
 
                     </a>
 
-                    <a href="#" class="mask-hover group flex items-center gap-2 rounded-full 
+                    <!-- Button 2 -->
+                    <a href="#" data-button class="group relative overflow-hidden flex items-center gap-2 rounded-full 
    bg-[radial-gradient(50%_50%_at_50%_50%,_#FFF_0%,_#FFCDBD_100%)] 
    shadow-[inset_0_0_10px_0_rgba(255,255,255,0.25),_inset_0_0_20px_0_rgba(255,255,255,0.5)]  
    text-primary boldonse text-[12px] md:text-lg leading-6 px-6 md:px-8 py-4 md:py-6 
    transition-all">
 
-                        <span class="mask-wrap">
-                            <span class="mask-track">
-                                <span>View Portfolio</span>
-                                <span>View Portfolio</span>
-                            </span>
-                        </span>
+                        <!-- FLARE (IMPORTANT) -->
+                        <span class="btn-flair"></span>
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 34 24" fill="none">
+                        <!-- TEXT -->
+                        <span class="relative z-10">View Portfolio</span>
+
+                        <!-- ICON -->
+                        <svg class="relative z-10" xmlns="http://www.w3.org/2000/svg" width="34" height="24"
+                            viewBox="0 0 34 24" fill="none">
                             <path d="M29.5 12L4.5 12" stroke="#F23F06" stroke-width="2" stroke-linecap="round" />
                             <path d="M22 21C22 21 31 14.3716 31 12C31 9.6282 22 3 22 3" stroke="#F23F06"
                                 stroke-width="2" />
