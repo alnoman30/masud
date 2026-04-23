@@ -11,8 +11,24 @@ if (typeof Lenis !== "undefined") {
     wheelMultiplier: 1.3,
   });
 
+  const progress = document.querySelector(".progress");
+  const progressBar = document.querySelector(".progress-bar");
+
   if (typeof ScrollTrigger !== "undefined") {
     lenis.on("scroll", ScrollTrigger.update);
+  }
+
+  // ✅ ADD THIS PART
+  if (progress) {
+    lenis.on("scroll", ({ scroll, limit }) => {
+      const percent = (scroll / limit) * 100;
+      progress.style.width = percent + "%";
+
+      // optional show/hide
+      if (progressBar) {
+        progressBar.style.opacity = scroll > 20 ? 1 : 0;
+      }
+    });
   }
 
   gsap.ticker.add(time => lenis.raf(time * 1000));
@@ -288,6 +304,13 @@ const el = document.querySelector('#card-slider');
     pagination: false,
     focus: 0,
     drag: 'free',
+  breakpoints: {
+    768: {   
+      perPage: 1,
+      padding: 10,
+      gap: '15px',
+    }
+  },
 
     autoplay: true,
     interval: 4000,
@@ -402,6 +425,11 @@ document.addEventListener('DOMContentLoaded', function () {
     perPage: 3,
     arrows: false,
     pagination: false,
+      breakpoints: {
+    768: {   // devices <= 768px
+      perPage: 1,
+    }
+  },
     gap: '1rem',
   };
 
@@ -425,18 +453,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
-// ================= PROGRESS =================
-gsap.to(".progress", {
-  scrollTrigger: {
-    trigger: "body",
-    start: "top top",
-    end: "bottom bottom",
-    scrub: true,
-  },
-  width: "100%",
-  ease: "none"
-});
 
 
 
